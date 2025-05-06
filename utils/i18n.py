@@ -1,6 +1,6 @@
-
 import json
 import os
+
 from flask import request, session
 
 
@@ -12,8 +12,7 @@ def load_i18n(lang: str, fallback="en", base_dir="translations") -> dict:
         return {}
 
     primary = load(f"{base_dir}/{lang}.json")
-    fallback_data = load(
-        f"{base_dir}/{fallback}.json") if lang != fallback else {}
+    fallback_data = load(f"{base_dir}/{fallback}.json") if lang != fallback else {}
     return {**fallback_data, **primary}
 
 

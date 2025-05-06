@@ -1,6 +1,7 @@
+import logging
 import os
 import sqlite3
-import logging
+
 from config import Config
 
 log = logging.getLogger(__name__)
@@ -14,15 +15,18 @@ def init_db():
         with sqlite3.connect(db_path) as conn:
             cursor = conn.cursor()
 
-            cursor.execute("""
+            cursor.execute(
+                """
             CREATE TABLE IF NOT EXISTS admin_users (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 username TEXT UNIQUE NOT NULL,
                 password TEXT NOT NULL
             );
-            """)
+            """
+            )
 
-            cursor.execute("""
+            cursor.execute(
+                """
             CREATE TABLE IF NOT EXISTS events (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 title TEXT NOT NULL,
@@ -31,9 +35,11 @@ def init_db():
                 role TEXT,
                 recurrence TEXT
             );
-            """)
+            """
+            )
 
-            cursor.execute("""
+            cursor.execute(
+                """
             CREATE TABLE IF NOT EXISTS participants (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 event_id INTEGER NOT NULL,
@@ -43,9 +49,11 @@ def init_db():
                 checked_in BOOLEAN DEFAULT 0,
                 FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE
             );
-            """)
+            """
+            )
 
-            cursor.execute("""
+            cursor.execute(
+                """
             CREATE TABLE IF NOT EXISTS scores (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 user_id TEXT NOT NULL,
@@ -54,9 +62,11 @@ def init_db():
                 period TEXT NOT NULL,
                 score INTEGER DEFAULT 0
             );
-            """)
+            """
+            )
 
-            cursor.execute("""
+            cursor.execute(
+                """
             CREATE TABLE IF NOT EXISTS hall_of_fame (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 username TEXT NOT NULL,
@@ -65,17 +75,21 @@ def init_db():
                 poster_url TEXT,
                 created_at TEXT DEFAULT CURRENT_TIMESTAMP
             );
-            """)
+            """
+            )
 
-            cursor.execute("""
+            cursor.execute(
+                """
             CREATE TABLE IF NOT EXISTS settings (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 user_id TEXT NOT NULL,
                 allow_dm BOOLEAN DEFAULT 1
             );
-            """)
+            """
+            )
 
-            cursor.execute("""
+            cursor.execute(
+                """
             CREATE TABLE IF NOT EXISTS reminders_sent (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 event_id INTEGER NOT NULL,
@@ -83,7 +97,8 @@ def init_db():
                 sent_at TEXT NOT NULL,
                 FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE
             );
-            """)
+            """
+            )
 
             conn.commit()
             print("✅ Datenbank initialisiert mit allen Tabellen.")

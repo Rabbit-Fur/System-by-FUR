@@ -1,12 +1,13 @@
-from . import routes
 from flask import Blueprint
 
+from . import routes
+
 leaderboard_bp = Blueprint(
-    'leaderboard',
+    "leaderboard",
     __name__,
-    template_folder='templates/leaderboard',
+    template_folder="templates/leaderboard",
     # Kein eigener static folder, nutzt globale oder admin static
-    url_prefix='/leaderboard'  # Erreichbar unter /leaderboard/...
+    url_prefix="/leaderboard",  # Erreichbar unter /leaderboard/...
 )
 
 # Routen importieren

@@ -1,12 +1,13 @@
-from . import routes
 from flask import Blueprint
 
+from . import routes
+
 public_bp = Blueprint(
-    'public',
+    "public",
     __name__,
-    template_folder='templates/public',
+    template_folder="templates/public",
     # Nutzt globale static Files
-    url_prefix='/'  # Kein Prefix für öffentliche Hauptseiten
+    url_prefix="/",  # Kein Prefix für öffentliche Hauptseiten
 )
 
 # Routen importieren

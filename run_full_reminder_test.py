@@ -1,8 +1,9 @@
-import sqlite3
 import asyncio
-import discord
 import os
+import sqlite3
 from datetime import datetime, timedelta
+
+import discord
 
 DATABASE_PATH = os.getenv("DATABASE_PATH", "data/admin_users.db")
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
@@ -18,6 +19,7 @@ DEFAULT_LANG = "de"
 
 def get_translation(lang, key):
     import json
+
     path = os.path.join(TRANSLATION_PATH, f"{lang}.json")
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -36,12 +38,15 @@ def get_db_connection():
 
 async def send_test_reminders(bot, event_id):
     conn = get_db_connection()
-    rows = conn.execute("""
+    rows = conn.execute(
+        """
         SELECT e.title, p.user_id, p.username
         FROM events e
         JOIN participants p ON e.id = p.event_id
         WHERE e.id = ? AND e.reminded IS NULL
-    """, (event_id,)).fetchall()
+    """,
+        (event_id,),
+    ).fetchall()
 
     for row in rows:
         try:
@@ -49,8 +54,7 @@ async def send_test_reminders(bot, event_id):
             lang = DEFAULT_LANG
             msg = f"⏰ {get_translation(lang, 'Reminder')}: **{row['title']}** startet in weniger als 30 Minuten!"
             await user.send(msg)
-            print(
-                f"📨 Reminder an {row['username']} ({row['user_id']}) gesendet.")
+            print(f"📨 Reminder an {row['username']} ({row['user_id']}) gesendet.")
         except Exception as e:
             print(f"❌ Fehler bei {row['username']}: {e}")
 
@@ -73,10 +77,13 @@ async def main():
         conn = get_db_connection()
         cur = conn.cursor()
 
-        cur.execute("""
+        cur.execute(
+            """
             INSERT INTO events (title, description, event_time, role, recurrence, reminded)
             VALUES (?, ?, ?, ?, ?, NULL)
-        """, (EVENT_TITLE, "Reminder-Test durch alle Mitglieder", EVENT_TIME, "everyone", "once"))
+        """,
+            (EVENT_TITLE, "Reminder-Test durch alle Mitglieder", EVENT_TIME, "everyone", "once"),
+        )
         event_id = cur.lastrowid
         print(f"📆 Test-Event ID {event_id} für {EVENT_TIME} erstellt.")
 
@@ -84,11 +91,11 @@ async def main():
             if not m.bot:
                 try:
                     cur.execute(
-                        "INSERT INTO participants (event_id, user_id, username) VALUES (?, ?, ?)", (event_id, str(
-                            m.id), m.name))
+                        "INSERT INTO participants (event_id, user_id, username) VALUES (?, ?, ?)",
+                        (event_id, str(m.id), m.name),
+                    )
                 except Exception as e:
-                    print(
-                        f"⚠️ Teilnehmer {m.name} konnte nicht hinzugefügt werden: {e}")
+                    print(f"⚠️ Teilnehmer {m.name} konnte nicht hinzugefügt werden: {e}")
 
         conn.commit()
         conn.close()
@@ -97,6 +104,7 @@ async def main():
         await bot.close()
 
     await bot.start(DISCORD_TOKEN)
+
 
 if __name__ == "__main__":
     asyncio.run(main())

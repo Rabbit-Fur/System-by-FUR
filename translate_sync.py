@@ -1,10 +1,9 @@
-
-import os
+# import glob
 import json
-import glob
+import os
 import re
-from pathlib import Path
 from collections import defaultdict
+from pathlib import Path
 
 LANG_DIR = "i18n"
 MASTER_LANG = "de"
@@ -19,6 +18,7 @@ REPORT_PATH = "untranslated_report.md"
 def extract_placeholders(text):
     return re.findall(r"{[^{}]+}", text)
 
+
 # === Platzhalter wieder einsetzen ===
 
 
@@ -28,6 +28,7 @@ def restore_placeholders(translated, original_placeholders):
         if i < len(original_placeholders):
             translated = translated.replace(ph, original_placeholders[i])
     return translated
+
 
 # === Übersetzungs-Strategie ===
 
@@ -40,6 +41,7 @@ def translate(text, lang):
     else:
         translated = fallback_translate(text, lang)
     return restore_placeholders(translated, placeholders)
+
 
 # === Fallback: Dummy-Übersetzer ===
 

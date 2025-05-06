@@ -2,7 +2,7 @@ import os
 import sqlite3
 from datetime import datetime
 
-db_path = 'data/admin_users.db'
+db_path = "data/admin_users.db"
 if not os.path.exists(db_path):
     print("❌ Datenbank nicht gefunden.")
     exit(1)
@@ -16,10 +16,13 @@ honor_title = "🔥 Champion of Unity 🔥"
 
 with sqlite3.connect(db_path) as conn:
     cursor = conn.cursor()
-    cursor.execute("""
+    cursor.execute(
+        """
         INSERT INTO hall_of_fame (username, honor_title, month, poster_url)
         VALUES (?, ?, ?, ?)
-    """, (username, honor_title, month, poster_url))
+    """,
+        (username, honor_title, month, poster_url),
+    )
     conn.commit()
 
 print(f"✅ Champion '{username}' für {month} erfolgreich eingetragen.")

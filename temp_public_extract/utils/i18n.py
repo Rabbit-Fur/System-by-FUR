@@ -11,4 +11,6 @@ def get_translation(lang: str, key: str) -> str:
         return data.get(key, key)
     except FileNotFoundError:
         return key
+
+
 # --- END OF FILE utils/i18n.py ---

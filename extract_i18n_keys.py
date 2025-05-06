@@ -1,9 +1,10 @@
 
+import json
 import os
 import re
-import json
-import openai
 from pathlib import Path
+
+import openai
 
 SOURCE_DIRS = [".", "templates"]
 TARGET_LANG = "de"

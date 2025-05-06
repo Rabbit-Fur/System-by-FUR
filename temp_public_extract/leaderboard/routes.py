@@ -1,20 +1,19 @@
-import sqlite3
 import logging
-from flask import render_template, current_app, abort
-from . import leaderboard_bp
+import sqlite3
+
+from flask import abort, current_app, render_template
+
 from app import get_db  # Importiere DB Helper aus Haupt-App
+
+from . import leaderboard_bp
 
 log = logging.getLogger(__name__)
 
 
-@leaderboard_bp.route('/')  # Route ist jetzt /leaderboard/
+@leaderboard_bp.route("/")  # Route ist jetzt /leaderboard/
 def show_leaderboards():
     """Zeigt die Leaderboard-Übersichtsseite an."""
-    categories = [
-        'raids',
-        'quests',
-        'donations',
-        'building']  # Beispiel-Kategorien
+    categories = ["raids", "quests", "donations", "building"]  # Beispiel-Kategorien
     leaderboard_data = {}
     try:
         with get_db() as conn:
@@ -32,24 +31,17 @@ def show_leaderboards():
                 # Stelle sicher, dass die 'scores' Tabelle existiert und Daten
                 # hat
                 try:
-                    leaderboard_data[category] = conn.execute(
-                        query, (category,)).fetchall()
+                    leaderboard_data[category] = conn.execute(query, (category,)).fetchall()
                 except sqlite3.OperationalError as oe:
-                    log.warning(
-                        f"Leaderboard table 'scores' might be missing or query error: {oe}")
+                    log.warning(f"Leaderboard table 'scores' might be missing or query error: {oe}")
                     leaderboard_data[category] = []  # Leere Liste bei Fehler
 
         log.debug("Leaderboard data fetched successfully.")
-        return render_template(
-            'leaderboards.html',
-            leaderboards=leaderboard_data,
-            categories=categories)
+        return render_template("leaderboards.html", leaderboards=leaderboard_data, categories=categories)
 
     except sqlite3.Error as e:
         log.error(f"Database error fetching leaderboards: {e}", exc_info=True)
         abort(500)  # Interner Serverfehler
     except Exception as e:
-        log.error(
-            f"Unexpected error fetching leaderboards: {e}",
-            exc_info=True)
+        log.error(f"Unexpected error fetching leaderboards: {e}", exc_info=True)
         abort(500)

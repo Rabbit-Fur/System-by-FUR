@@ -32,13 +32,7 @@ def run_healthcheck():
         return
 
     conn = sqlite3.connect("data/admin_users.db")
-    for table in [
-        "admin_users",
-        "events",
-        "participants",
-        "scores",
-        "hall_of_fame",
-            "settings"]:
+    for table in ["admin_users", "events", "participants", "scores", "hall_of_fame", "settings"]:
         check_table(conn, table)
 
     print("\n🏁 Healthcheck abgeschlossen.")

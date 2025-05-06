@@ -1,20 +1,18 @@
 import os
+
 import requests
 
 # Webhook-URL (bitte setzen)
-WEBHOOK_URL = os.getenv(
-    "DISCORD_WEBHOOK_URL") or "https://discord.com/api/webhooks/DEIN_WEBHOOK"
+WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL") or "https://discord.com/api/webhooks/DEIN_WEBHOOK"
 
 # Bild und Nachricht
-image_path = 'static/champions/champion_testchampion_mai2025.png'
+image_path = "static/champions/champion_testchampion_mai2025.png"
 champion_name = "TestChampion"
 champion_title = "🔥 Champion of Unity 🔥"
 month = "Mai 2025"
 
 # Nachricht
-payload = {
-    "content": f"🏆 **{champion_name}** wurde als Champion für **{month}** ausgezeichnet!\n{champion_title}"
-}
+payload = {"content": f"🏆 **{champion_name}** wurde als Champion für **{month}** ausgezeichnet!\n{champion_title}"}
 
 # Datei anhängen
 if not os.path.exists(image_path):

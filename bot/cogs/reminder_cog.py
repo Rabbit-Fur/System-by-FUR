@@ -1,10 +1,10 @@
-import discord
-from discord.ext import commands, tasks
-from datetime import datetime, timedelta
-import sqlite3
 import logging
+import sqlite3
+from datetime import datetime, timedelta
 
+import discord
 from bot.bot_main import get_bot_db_connection as get_db  # ✅ sicherer Import
+from discord.ext import commands, tasks
 
 log = logging.getLogger(__name__)
 
@@ -25,24 +25,33 @@ class ReminderCog(commands.Cog):
 
         try:
             db = get_db()
-            events = db.execute("""
+            events = db.execute(
+                """
                 SELECT id, title, event_time
                 FROM events
                 WHERE datetime(event_time) BETWEEN ? AND ?
-            """, (window_start.isoformat(), window_end.isoformat())).fetchall()
+            """,
+                (window_start.isoformat(), window_end.isoformat()),
+            ).fetchall()
 
             for event in events:
-                participants = db.execute("""
+                participants = db.execute(
+                    """
                     SELECT user_id
                     FROM participants
                     WHERE event_id = ?
-                """, (event["id"],)).fetchall()
+                """,
+                    (event["id"],),
+                ).fetchall()
 
                 for p in participants:
-                    already_sent = db.execute("""
+                    already_sent = db.execute(
+                        """
                         SELECT 1 FROM reminders_sent
                         WHERE event_id = ? AND user_id = ?
-                    """, (event["id"], p["user_id"])).fetchone()
+                    """,
+                        (event["id"], p["user_id"]),
+                    ).fetchone()
 
                     if already_sent:
                         continue
@@ -59,27 +68,24 @@ class ReminderCog(commands.Cog):
                         await user.send(
                             f"⏰ **Reminder:** Dein Event **'{event['title']}'** startet in weniger als 15 Minuten!"
                         )
-                        db.execute("""
+                        db.execute(
+                            """
                             INSERT INTO reminders_sent (event_id, user_id, sent_at)
                             VALUES (?, ?, ?)
-                        """, (event["id"], p["user_id"], datetime.utcnow().isoformat()))
+                        """,
+                            (event["id"], p["user_id"], datetime.utcnow().isoformat()),
+                        )
                         db.commit()
-                        log.info(
-                            f"✅ Reminder sent to {p['user_id']} for event {event['id']}")
+                        log.info(f"✅ Reminder sent to {p['user_id']} for event {event['id']}")
                     except discord.Forbidden:
-                        log.warning(
-                            f"Cannot DM user {p['user_id']}: DMs disabled.")
+                        log.warning(f"Cannot DM user {p['user_id']}: DMs disabled.")
                     except Exception as e:
                         log.error(f"Failed to send DM to {p['user_id']}: {e}")
 
         except sqlite3.Error as e:
-            log.error(
-                f"Database error during reminder check: {e}",
-                exc_info=True)
+            log.error(f"Database error during reminder check: {e}", exc_info=True)
         except Exception as e:
-            log.error(
-                f"Unexpected error during reminder check: {e}",
-                exc_info=True)
+            log.error(f"Unexpected error during reminder check: {e}", exc_info=True)
 
     @check_reminders.before_loop
     async def before_check_reminders(self):

@@ -1,6 +1,7 @@
+from datetime import datetime
+
 import discord
 from discord.ext import commands, tasks
-from datetime import datetime
 
 
 class Reminders(commands.Cog):
@@ -16,8 +17,7 @@ class Reminders(commands.Cog):
     @tasks.loop(minutes=60)
     async def reminder_loop(self):
         now = datetime.utcnow().strftime("%H:%M")
-        channel = self.bot.get_channel(
-            1365580225945014385)  # aus .env / config laden!
+        channel = self.bot.get_channel(1365580225945014385)  # aus .env / config laden!
         if channel:
             await channel.send(f"⏰ Reminder Loop: UTC {now} – check your quests!")
 

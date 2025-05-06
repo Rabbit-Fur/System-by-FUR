@@ -1,9 +1,9 @@
-import threading
+import atexit
 import logging
 import os
 import signal
 import sys
-import atexit
+import threading
 
 from app import create_app
 from bot.bot_main import main as start_discord_bot
@@ -18,11 +18,7 @@ except Exception as e:
     sys.exit(1)
 
 # === Logging Setup ===
-logging.basicConfig(
-    filename='app.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(filename="app.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # === Flask App Setup ===
 app = create_app()

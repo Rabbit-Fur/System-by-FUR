@@ -1,11 +1,12 @@
 """WSGI entrypoint for Flask app."""
 
-from app import create_app
-from config import Config
 import os
 
+from app import create_app
+from config import Config
+
 # Setze FLASK_ENV auf production, falls nicht schon extern gesetzt
-os.environ['FLASK_ENV'] = os.environ.get('FLASK_ENV', 'production')
+os.environ["FLASK_ENV"] = os.environ.get("FLASK_ENV", "production")
 
 # Erstelle die App Instanz mit der Produktionskonfiguration
 app = create_app(Config)

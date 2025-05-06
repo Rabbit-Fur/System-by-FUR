@@ -11,10 +11,7 @@ class Leaderboard(commands.Cog):
     @commands.command(name="top")
     async def top_players(self, ctx, category: str = "raids"):
         # Platzhalter – soll später aus DB/API lesen
-        fake_data = {
-            "raids": ["Alice - 120", "Bob - 110", "Charlie - 100"],
-            "donations": ["Dino - 500", "Eva - 450"]
-        }
+        fake_data = {"raids": ["Alice - 120", "Bob - 110", "Charlie - 100"], "donations": ["Dino - 500", "Eva - 450"]}
         if category not in fake_data:
             await ctx.send(f"❌ Kategorie '{category}' ist nicht verfügbar.")
             return

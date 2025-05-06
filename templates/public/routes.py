@@ -1,43 +1,43 @@
-from flask import Blueprint, render_template, session, redirect, url_for, flash
+from flask import Blueprint, flash, redirect, render_template, session, url_for
 
-public_bp = Blueprint('public', __name__, template_folder='templates')
+public_bp = Blueprint("public", __name__, template_folder="templates")
 
 
-@public_bp.route('/')
+@public_bp.route("/")
 def landing():
-    return render_template('public/landing.html')
+    return render_template("public/landing.html")
 
 
-@public_bp.route('/login')
+@public_bp.route("/login")
 def login():
-    return render_template('public/login.html')
+    return render_template("public/login.html")
 
 
-@public_bp.route('/calendar')
+@public_bp.route("/calendar")
 def calendar():
-    return render_template('public/calendar.html')
+    return render_template("public/calendar.html")
 
 
-@public_bp.route('/events_list')
+@public_bp.route("/events_list")
 def events_list():
-    return render_template('public/events_list.html')
+    return render_template("public/events_list.html")
 
 
-@public_bp.route('/hall_of_fame')
+@public_bp.route("/hall_of_fame")
 def hall_of_fame():
-    return render_template('public/hall_of_fame.html')
+    return render_template("public/hall_of_fame.html")
 
 
-@public_bp.route('/lore')
+@public_bp.route("/lore")
 def lore():
-    return render_template('public/lore.html')
+    return render_template("public/lore.html")
 
 
-@public_bp.route('/public_leaderboard')
+@public_bp.route("/public_leaderboard")
 def public_leaderboard():
-    return render_template('public/public_leaderboard.html')
+    return render_template("public/public_leaderboard.html")
 
 
-@public_bp.route('/view_event')
+@public_bp.route("/view_event")
 def view_event():
-    return render_template('public/view_event.html')
+    return render_template("public/view_event.html")

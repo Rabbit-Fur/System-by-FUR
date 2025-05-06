@@ -1,53 +1,59 @@
-import sqlite3
 import logging
-from . import leaderboard_bp
+import sqlite3
+
+from flask import Blueprint, jsonify, request
+
+from app import get_db
 
 log = logging.getLogger(__name__)
+api_bp = Blueprint("api_leaderboard", __name__)
 
 
-@leaderboard_bp.route('/')  # Route ist jetzt /leaderboard/
-def show_leaderboards():
-    """Zeigt die Leaderboard-Übersichtsseite an."""
-    categories = [
-        'raids',
-        'quests',
-        'donations',
-        'building']  # Beispiel-Kategorien
-    leaderboard_data = {}
+@api_bp.route("/error")
+def error():
+    return jsonify({"error": "Event not found"}), 404
+
+
+@api_bp.route("/hall_of_fame", methods=["GET"])
+def get_hall_of_fame_api():
+    """Gibt die Liste der Champions aus der Hall of Fame zurück."""
     try:
-        with app.get_db() as conn:
-            for category in categories:
-                # Hole Top 10 für jede Kategorie (Annahme: Tabelle 'scores'
-                # existiert)
-                query = """
-                    SELECT s.user_id, u.username, s.score
-                    FROM scores s
-                    JOIN users u ON s.user_id = u.user_id
-                    WHERE s.category = ? AND s.period = 'alltime' -- Beispiel: Allzeit-Ranking
-                    ORDER BY s.score DESC
-                    LIMIT 10
-                """
-                # Stelle sicher, dass die 'scores' Tabelle existiert und Daten
-                # hat
-                try:
-                    leaderboard_data[category] = conn.execute(
-                        query, (category,)).fetchall()
-                except sqlite3.OperationalError as oe:
-                    log.warning(
-                        f"Leaderboard table 'scores' might be missing or query error: {oe}")
-                    leaderboard_data[category] = []  # Leere Liste bei Fehler
-
-        log.debug("Leaderboard data fetched successfully.")
-        return render_template(
-            'leaderboards.html',
-            leaderboards=leaderboard_data,
-            categories=categories)
-
+        db = get_db()
+        champions = db.execute(
+            "SELECT username, honor_title, month, poster_url, created_at FROM hall_of_fame ORDER BY created_at DESC"
+        ).fetchall()
+        return jsonify([dict(row) for row in champions]), 200
     except sqlite3.Error as e:
-        log.error(f"Database error fetching leaderboards: {e}", exc_info=True)
-        abort(500)  # Interner Serverfehler
+        log.error(f"API Error fetching Hall of Fame: {e}", exc_info=True)
+        return jsonify({"error": "Database error fetching Hall of Fame"}), 500
     except Exception as e:
-        log.error(
-            f"Unexpected error fetching leaderboards: {e}",
-            exc_info=True)
-        abort(500)
+        log.error(f"Unexpected API error fetching Hall of Fame: {e}", exc_info=True)
+        return jsonify({"error": "Internal server error"}), 500
+
+
+@api_bp.route("/leaderboard/<category>", methods=["GET"])
+def get_leaderboard_category(category):
+    """Gibt Leaderboard-Scores für eine spezifische Kategorie zurück."""
+    allowed_categories = {"raids", "quests", "donations", "building"}
+    if category not in allowed_categories:
+        return jsonify({"error": "Invalid category"}), 400
+
+    period_filter = request.args.get("period", "alltime")
+
+    query = """
+        SELECT user_id, username, score
+        FROM scores
+        WHERE category = ? AND period = ?
+        ORDER BY score DESC
+        LIMIT 10
+    """
+    try:
+        db = get_db()
+        scores = db.execute(query, (category, period_filter)).fetchall()
+        return jsonify([dict(row) for row in scores]), 200
+    except sqlite3.Error as e:
+        log.error(f"API Error fetching leaderboard for {category}: {e}", exc_info=True)
+        return jsonify({"error": "Database error fetching leaderboard"}), 500
+    except Exception as e:
+        log.error(f"Unexpected API error fetching leaderboard for {category}: {e}", exc_info=True)
+        return jsonify({"error": "Internal server error"}), 500
