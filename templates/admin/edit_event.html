@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="main-content">
+  <div class="page-header">
+    <h1>✏️ Event bearbeiten</h1>
+  </div>
+
+  <form method="POST">
+    <label>{{ _('Titel') }}</label>
+    <input type="text" name="title" value="{{ event.title }}" required>
+
+    <label>{{ _('Beschreibung') }}</label>
+    <textarea name="description" rows="4">{{ event.description }}</textarea>
+
+    <label>{{ _('Startzeit (UTC)') }}</label>
+    <input type="datetime-local" name="event_time" value="{{ event.event_time }}" required>
+
+    <label>{{ _('Zielrolle') }}</label>
+    <input type="text" name="role" value="{{ event.role }}">
+
+    <label>{{ _('Wiederholung') }}</label>
+    <select name="recurrence">
+      <option value="none" {% if event.recurrence == 'none' %}selected{% endif %}>Keine</option>
+      <option value="daily" {% if event.recurrence == 'daily' %}selected{% endif %}>Täglich</option>
+      <option value="weekly" {% if event.recurrence == 'weekly' %}selected{% endif %}>Wöchentlich</option>
+      <option value="monthly" {% if event.recurrence == 'monthly' %}selected{% endif %}>Monatlich</option>
+    </select>
+
+    <button type="submit" class="btn btn-glow">💾 Änderungen speichern</button>
+  </form>
+</div>
+{% endblock %}

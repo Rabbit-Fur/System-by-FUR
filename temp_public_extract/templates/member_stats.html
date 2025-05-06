@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="main-content">
+  <div class="page-header">
+    <h1>📈 Deine Statistiken</h1>
+  </div>
+  <div class="calendar-card">
+    <p><strong>Events teilgenommen:</strong> 7</p>
+    <p><strong>Gewonnene Medaillen:</strong> 2 🥇</p>
+    <p><strong>Letzter Login:</strong> {{ now.strftime('%d.%m.%Y %H:%M') }}</p>
+  </div>
+</div>
+{% endblock %}

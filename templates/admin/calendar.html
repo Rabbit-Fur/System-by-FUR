@@ -1,0 +1,100 @@
+      {% extends 'layout.html' %}
+
+      {% block content %}
+      <div class="main-content">
+        <div class="page-header">
+          <h1>🗓️ Event Calendar</h1>
+        </div>
+
+        <a href="{{ url_for(\'admin.downloads\') }}"  <!-- TODO: adjust to correct export route --> class="btn btn-outline">📥 Export to Calendar (.ics)</a>
+
+        <!-- FullCalendar Grid -->
+        <div id="full-calendar"></div>
+
+        <!-- Upcoming Events List -->
+        <div class="calendar-card">
+          <h2>🧾 Upcoming Events</h2>
+          <ul>
+            {% if events %}
+              {% for event in events %}
+                {% set is_past = event.event_time < now %}
+                <li style="color: {{ 'gray' if is_past else 'white' }}">
+                  {% if is_past %}✅ {% endif %}
+                  <strong>{{ event.title }}</strong> – {{ event.event_time.strftime('%Y-%m-%d %H:%M') }}
+                  <a href="/participants/{{ event.id }}" class="btn btn-outline" style="margin-left: 0.8rem;">👥</a>
+                  {% if session.get("user") %}
+                    <a href="/edit/{{ event.id }}" title="Edit">✏️</a>
+                    <form action="/delete/{{ event.id }}" method="POST" style="display:inline;" onsubmit="return confirm('❗Delete?')">
+                      <button type="submit" style="background:none;border:none;color:red;">❌</button>
+                    </form>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            {% else %}
+              <li>No events yet.</li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+
+      <script>
+        var fcEvents = [];
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('full-calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            themeSystem: 'standard',
+            height: "auto",
+            headerToolbar: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,listWeek'
+            },
+            events: [
+              {% for event in events %}
+              {
+                title: '{{ event.title }}',
+                start: '{{ event.event_time.isoformat() }}',
+                url: '/participants/{{ event.id }}'
+              },
+              {% endfor %}
+            ],
+            eventDidMount: function(info) {
+              fcEvents.push({ title: info.event.title, start: info.event.start });
+            }
+          });
+          calendar.render();
+          requestNotificationPermission();
+          setInterval(() => checkForUpcomingEvents(fcEvents), 30000);
+        });
+
+        function requestNotificationPermission() {
+          if ('Notification' in window && Notification.permission !== 'granted') {
+            Notification.requestPermission().then(permission => {
+              if (permission === 'granted') {
+                console.log("✅ Notifications enabled");
+              }
+            });
+          }
+        }
+
+        function checkForUpcomingEvents(events) {
+          const now = new Date();
+          const fiveMinutesFromNow = new Date(now.getTime() + 5 * 60000);
+          events.forEach(event => {
+            const eventTime = new Date(event.start);
+            const title = event.title;
+            if (eventTime > now && eventTime <= fiveMinutesFromNow) {
+              const key = `notified_${event.start}_${title}`;
+              if (!localStorage.getItem(key)) {
+                new Notification(`📅 Upcoming: ${title}`, {
+                  body: `Starts at ${eventTime.toLocaleTimeString()}`,
+                  icon: "/static/icons/fire.png"
+                });
+                localStorage.setItem(key, "true");
+              }
+            }
+          });
+        }
+      </script>
+      {% endblock %}

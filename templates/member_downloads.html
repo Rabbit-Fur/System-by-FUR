@@ -1,0 +1,16 @@
+{% if 'r3' in session.get('role_ids', []) or 'r4' in session.get('role_ids', []) or session.get('admin_logged_in') %}
+{% extends "layout.html" %}
+{% block content %}
+<div class="main-content">
+  <div class="page-header">
+    <h1>📁 Downloads für Mitglieder</h1>
+  </div>
+  <div class="calendar-card">
+    <ul>
+      <li><a href="/static/docs/fur_guide.pdf" target="_blank">📘 FUR Guide PDF</a></li>
+      <li><a href="/static/assets/poster_template.psd" download>🎨 Poster Template (PSD)</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
+{% endif %}

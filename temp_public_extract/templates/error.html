@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="main-content">
+  <div class="calendar-card" style="text-align: center; padding: 2rem;">
+    <h1 style="color: var(--accent);">⚠️ Something went wrong</h1>
+    <p style="font-size: 1.1rem; margin: 1rem 0;">
+      {% if error %}
+        {{ error }}
+      {% else %}
+        Oops! Something went wrong. Please try again later.
+      {% endif %}
+    </p>
+    <a href="/" class="btn btn-glow">← Back to Home</a>
+  </div>
+</div>
+{% endblock %}

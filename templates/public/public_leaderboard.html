@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>🏆 FUR Leaderboard</title>
+	<style>
+		body {
+			font-family: 'Crimson Text', serif; /* Schriftart aus FUR Command Center */
+			background: #0a0000;
+			color: #f8c471;
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			background: #1a0b00;
+			color: #f39c12;
+			padding: 1rem 2rem;
+			text-align: center;
+			box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+		}
+
+		header h1 {
+			margin: 0;
+			font-size: 36px;
+			text-shadow: 2px 2px 8px rgba(255, 69, 0, 0.6);
+		}
+
+		header p {
+			margin: 0.5rem 0;
+			font-size: 18px;
+			color: #f8c471;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 2rem auto;
+			padding: 1rem;
+			background: #1a0b00;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+		}
+
+		h2 {
+			margin-top: 2rem;
+			border-bottom: 2px solid #f39c12;
+			padding-bottom: 0.5rem;
+			font-size: 24px;
+			color: #f39c12;
+		}
+
+		ol {
+			padding-left: 1.5rem;
+		}
+
+		li {
+			margin: 0.5rem 0;
+			font-size: 1.1rem;
+		}
+
+		.rank-1 {
+			font-weight: bold;
+			color: gold;
+			text-shadow: 1px 1px 5px rgba(255, 69, 0, 0.6);
+		}
+
+		.rank-2 {
+			font-weight: bold;
+			color: silver;
+			text-shadow: 1px 1px 5px rgba(255, 69, 0, 0.6);
+		}
+
+		.rank-3 {
+			font-weight: bold;
+			color: #cd7f32; /* bronze */
+			text-shadow: 1px 1px 5px rgba(255, 69, 0, 0.6);
+		}
+
+		footer {
+			text-align: center;
+			padding: 1rem;
+			font-size: 0.9rem;
+			color: #f8c471;
+			background-color: #1a0b00;
+		}
+	</style>
+</head>
+<body>
+<nav class="public-nav" style="margin-bottom:1rem;">
+  <a href="{{ url_for('public.landing') }}">Home</a> |
+  <a href="{{ url_for('public.events_list') }}">Events</a> |
+  <a href="{{ url_for('public.hall_of_fame') }}">Hall of Fame</a> |
+  <!-- Language Selector -->
+  <a href="?lang=en"><img src="/static/flags/en.png" alt="EN" width="20"/></a>
+  <a href="?lang=de"><img src="/static/flags/de.png" alt="DE" width="20"/></a>
+  <a href="?lang=fr"><img src="/static/flags/fr.png" alt="FR" width="20"/></a>
+  <!-- Add more as needed -->
+</nav>
+
+	<header>
+		<h1>🐇🔥 FUR Leaderboard</h1>
+		<p>Public Rankings – No Login Required</p>
+	</header>
+
+	<main class="container">
+		<section>
+			<h2>⚔️ Raids</h2>
+			<ol id="raids-list"></ol>
+		</section>
+
+		<section>
+			<h2>📜 Building</h2>
+			<ol id="quests-list"></ol>
+		</section>
+
+		<section>
+			<h2>❤️ Donations</h2>
+			<ol id="donations-list"></ol>
+		</section>
+	</main>
+
+	<footer>
+		&copy; 2025 FUR Community
+	</footer>
+
+	<script>
+		// Sample data
+		const data = {
+			raids: [
+				{ user: 'Alice', score: 120 },
+				{ user: 'Bob', score: 110 },
+				{ user: 'Charlie', score: 100 },
+				{ user: 'Dave', score: 90 },
+				{ user: 'Eve', score: 80 }
+			],
+			quests: [
+				{ user: 'Frank', score: 95 },
+				{ user: 'Grace', score: 90 },
+				{ user: 'Heidi', score: 85 },
+				{ user: 'Ivan', score: 80 },
+				{ user: 'Judy', score: 75 }
+			],
+			donations: [
+				{ user: 'Mallory', score: 150 },
+				{ user: 'Niaj', score: 140 },
+				{ user: 'Olivia', score: 130 },
+				{ user: 'Peggy', score: 120 },
+				{ user: 'Sybil', score: 110 }
+			]
+		};
+
+		function renderList(id, entries) {
+			const list = document.getElementById(id);
+			entries
+				.sort((a, b) => b.score - a.score)
+				.forEach((entry, index) => {
+					const li = document.createElement('li');
+					if (index === 0) li.classList.add('rank-1');
+					else if (index === 1) li.classList.add('rank-2');
+					else if (index === 2) li.classList.add('rank-3');
+					li.textContent = `${entry.user} – ${entry.score} points`;
+					list.appendChild(li);
+				});
+		}
+
+		renderList('raids-list', data.raids);
+		renderList('quests-list', data.quests);
+		renderList('donations-list', data.donations);
+	</script>
+</body>
+</html>

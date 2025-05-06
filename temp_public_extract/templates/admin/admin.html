@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="main-content">
+	<div class="page-header">
+		<h1>🛡️ FUR Command Center</h1>
+	</div>
+
+	<!-- Overview Cards -->
+	<div class="calendar-card">
+		<h2>🧾 Overview</h2>
+		<ul>
+			<li><strong>🧙‍♂️ Active Members:</strong> 48</li>
+			<li><strong>🔥 Current Power:</strong> 274,600</li>
+			<li><strong>📆 Scheduled Events:</strong> {{ events|length }}</li>
+		</ul>
+	</div>
+
+	<div class="calendar-card">
+		<h2>🎯 Daily Objectives</h2>
+		<ul>
+			<li>✅ Check-in at least once</li>
+			<li>⚔️ Help with war 17:00</li>
+			<li>📣 Post on Discord once</li>
+		</ul>
+	</div>
+
+	<div class="calendar-card">
+		<h2>📢 Motivation</h2>
+		<blockquote>
+			“Forged in Unity, we rise in Flame.”
+			<footer>— Clan Motto</footer>
+		</blockquote>
+	</div>
+
+	<!-- Event Management -->
+	<div class="calendar-card">
+		<h2>📋 Event Management</h2>
+		<a href="/create" class="btn btn-glow" style="margin-bottom: 1rem;">➕ New Event</a>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Time</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for event in events %}
+				<tr>
+					<td>{{ event.title }}</td>
+					<td>{{ event.event_time }}</td>
+					<td>
+						<a href="/edit/{{ event.id }}" title="Edit">✏️</a>
+						<a href="/delete/{{ event.id }}" title="Delete">❌</a>
+						<a href="/participants/{{ event.id }}" title="Participants">👥</a>
+					</td>
+				</tr>
+				{% else %}
+				<tr><td colspan="3">No events found.</td></tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

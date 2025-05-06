@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<nav class="public-nav" style="margin-bottom:1rem;">
+  <a href="{{ url_for('public.landing') }}">Home</a> |
+  <a href="{{ url_for('public.events_list') }}">Events</a> |
+  <a href="{{ url_for('public.hall_of_fame') }}">Hall of Fame</a> |
+  <!-- Language Selector -->
+  <a href="?lang=en"><img src="/static/flags/en.png" alt="EN" width="20"/></a>
+  <a href="?lang=de"><img src="/static/flags/de.png" alt="DE" width="20"/></a>
+  <a href="?lang=fr"><img src="/static/flags/fr.png" alt="FR" width="20"/></a>
+  <!-- Add more as needed -->
+</nav>
+
+<div class="main-content">
+	<div class="page-header">
+		<h1>🐇🔥 Welcome to FUR Command Center</h1>
+	</div>
+
+	<div class="welcome-section">
+		<p class="welcome-text">Log in with your Discord account to manage events, view leaderboards, and configure preferences.</p>
+		<a href="/login" class="btn btn-glow">🔐 Login with Discord</a>
+	</div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+	.main-content {
+		padding: 2rem;
+		text-align: center;
+	}
+
+	.page-header h1 {
+		font-size: 2.5rem;
+		color: var(--primary);
+		margin-bottom: 1.5rem;
+	}
+
+	.welcome-section {
+		background-color: rgba(255, 152, 0, 0.1);
+		border-radius: 12px;
+		padding: 2rem;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		margin: 1.5rem auto;
+		max-width: 500px;
+	}
+
+	.welcome-text {
+		font-size: 1.25rem;
+		color: var(--light);
+		margin-bottom: 1rem;
+	}
+
+	.btn-glow {
+		background-color: #FF5733;
+		color: white;
+		font-size: 1.2rem;
+		padding: 0.8rem 1.5rem;
+		border-radius: 6px;
+		text-decoration: none;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.btn-glow:hover {
+		transform: scale(1.05);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	}
+
+	.btn-glow:focus {
+		outline: none;
+	}
+</style>
+{% endblock %}

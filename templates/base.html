@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{ g.lang }}">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Rabbit FUR{% endblock %}</title>
+</head>
+<body>
+  <header>
+    <h1>{{ _('event_signup_success') }}</h1>
+    <p>{{ _('welcome_text') }}</p>
+
+    <!-- 🌐 Sprachumschalter mit PNG-Flaggen -->
+    <div id="lang-switch" style="margin-top: 1rem;">
+      {% for code in [
+        'en','fr','es','pt','it','tr','pl','nl','sv','fi','da','no',
+        'ru','uk','de','zh','ja','ko','th','vi','id','ms',
+        'hi','bn','ta','ur','ar','fa','he','sw','am','yo'
+      ] %}
+        <a href="?lang={{ code }}" title="{{ code }}">
+          <img src="{{ url_for('static', filename='flags/' ~ code ~ '.png') }}"
+               alt="{{ code }}" width="28" height="20"
+               style="margin: 0 4px; border-radius: 3px;">
+        </a>
+      {% endfor %}
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

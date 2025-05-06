@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>📜 Diplomacy</h1>
+<p>Diplomatische Beziehungen und Allianzen im Überblick.</p>
+{% endblock %}
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="main-content">
+  <h1>📜 Diplomacy Board</h1>
+
+  <div class="diplomacy-section">
+    <h2 class="section-title">⚖️ Active Alliances</h2>
+    <ul class="alliance-list">
+      <li>🔥 Clan Inferno – Peace pact until May 2025</li>
+      <li>🛡️ Iron Brotherhood – Mutual defense treaty</li>
+    </ul>
+
+    <h2 class="section-title">🛑 Disputes</h2>
+    <ul class="dispute-list">
+      <li>⚔️ Shadow Guild – Hostile since Jan 2025</li>
+    </ul>
+
+    <h2 class="section-title">📘 Notes</h2>
+    <p class="notes-text">This section can be updated with future diplomatic developments, negotiations, and alliance statuses.</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+  .section-title {
+    font-size: 1.6rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .alliance-list, .dispute-list {
+    padding-left: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .alliance-list li {
+    color: green;
+  }
+
+  .dispute-list li {
+    color: red;
+  }
+
+  .notes-text {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--neutral);
+  }
+</style>
+{% endblock %}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FUR Command Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Crimson Text', serif;
+      background-color: #0a0000;
+      color: #f8c471;
+      display: flex;
+    }
+    nav {
+      width: 220px;
+      background-color: #1a0b00;
+      padding: 40px 20px;
+      border-right: 1px solid #f39c12;
+    }
+    nav h1 {
+      font-size: 32px;
+      color: #f39c12;
+      margin-bottom: 40px;
+    }
+    nav a {
+      display: block;
+      color: #f8c471;
+      text-decoration: none;
+      margin: 12px 0;
+      font-size: 18px;
+      padding: 8px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background-color: rgba(243, 156, 18, 0.2);
+      border-radius: 5px;
+    }
+    .content {
+      flex: 1;
+      padding: 60px;
+      background-image: url('{{ url_for("static", filename="img/background.jpg") }}');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .headline {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #f39c12;
+      text-shadow: 2px 2px 8px rgba(255, 69, 0, 0.6);
+    }
+    .message {
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #f8c471;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .dashboard {
+      position: absolute;
+      right: 60px;
+      top: 60px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #f39c12;
+      width: 300px;
+    }
+    .dashboard h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #f39c12;
+    }
+    .dashboard button {
+      background-color: #f39c12;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      width: 100%;
+      margin-bottom: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .dashboard button:hover {
+      background-color: #e67e22;
+    }
+    .event {
+      margin: 6px 0;
+      font-size: 16px;
+      color: #f8c471;
+    }
+    .participants {
+      margin-top: 12px;
+    }
+    .participant {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 16px;
+      color: #f8c471;
+    }
+    .participant img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>FUR</h1>
+    <div>STRENGTH. UNITY.</div>
+    <a href="{{ url_for('public.login') }}">Home</a>
+    <a href="{{ url_for('public.login') }}">Member Stats</a>
+    <a href="{{ url_for('public.login') }}">Battle Logs</a>
+    <a href="{{ url_for('public.login') }}">Diplomacy</a>
+    <a href="{{ url_for('public.login') }}">Events</a>
+    <a href="{{ url_for('public.login') }}">Lore</a>
+    <a href="{{ url_for('public.login') }}">Downloads</a>
+  </nav>
+
+  <div class="content">
+    <div class="headline">Together we rise.</div>
+    <div class="message">
+      We, the alliance FUR—warmly invite you to join us on Server #28 – a place built on teamwork, fairness, and respect. We understand how discouraging it can be when servers don't work together, rewards are missed, and only a few benefit. That's why we've created something better.
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <h2>FUR Event Dashboard</h2>
+    <form action="/create" method="get">
+      <button type="submit">Add Event</button>
+    </form>
+
+    {% for event in events %}
+      <div class="event">{{ event.title }} – {{ event.time }} ET</div>
+    {% endfor %}
+
+    <div class="participants">
+      {% for participant in participants %}
+        <div class="participant">
+          <img src="{{ participant.avatar_url }}" alt="{{ participant.name }}">
+          {{ participant.emoji }} {{ participant.name }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>

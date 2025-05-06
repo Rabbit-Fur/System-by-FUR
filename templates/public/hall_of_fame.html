@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<nav class="public-nav" style="margin-bottom:1rem;">
+  <a href="{{ url_for('public.landing') }}">Home</a> |
+  <a href="{{ url_for('public.events_list') }}">Events</a> |
+  <a href="{{ url_for('public.hall_of_fame') }}">Hall of Fame</a> |
+  <!-- Language Selector -->
+  <a href="?lang=en"><img src="/static/flags/en.png" alt="EN" width="20"/></a>
+  <a href="?lang=de"><img src="/static/flags/de.png" alt="DE" width="20"/></a>
+  <a href="?lang=fr"><img src="/static/flags/fr.png" alt="FR" width="20"/></a>
+  <!-- Add more as needed -->
+</nav>
+
+<div class="main-content">
+  <div class="page-header">
+    <h1>🏆 {{ _('Hall of Fame') }}</h1>
+  </div>
+
+  
+    <div class="calendar-card">
+      {% for champ in champions %}
+        <div style="margin-bottom: 2rem;">
+          <h2>{{ champ.username }}</h2>
+          <p>{{ champ.honor_title }}</p>
+          <p><strong>{{ _('Month') }}:</strong> {{ champ.month }}</p>
+          {% if champ.poster_url %}
+          <img src="{{ champ.poster_url }}" alt="Champion Poster" style="max-width: 100%; border: 1px solid #444;">
+          
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>{{ _('No champions yet.') }}</p>
+  
+</div>
+{% endblock %}

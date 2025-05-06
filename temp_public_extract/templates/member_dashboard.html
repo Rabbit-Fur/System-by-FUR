@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="main-content">
+  <div class="page-header">
+    <h1>📊 Member Dashboard</h1>
+    <p>Willkommen zurück, {{ session.member_username }}!</p>
+  </div>
+  <div class="calendar-card">
+    <ul>
+      <li><a href="/member/downloads" class="btn">📁 Downloads</a></li>
+      <li><a href="/member/stats" class="btn">📈 Statistiken</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

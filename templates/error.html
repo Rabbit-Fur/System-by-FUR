@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+{% block title %}Error {{ error_code or 500 }}{% endblock %}
+{% block content %}
+  <h1>Error {{ error_code or 500 }}</h1>
+  <p>{{ error_message or "An unexpected error occurred." }}</p>
+  <a href="{{ url_for('public.landing') }}">← Back to Home</a>
+{% endblock %}
