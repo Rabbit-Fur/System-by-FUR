@@ -11,8 +11,15 @@ import web
 
 import bot
 
-locale.setlocale(locale.LC_ALL, "")
-locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
+import locale
+
+try:
+    locale.setlocale(locale.LC_ALL, "")
+    locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
+except locale.Error:
+    # Locale nicht verfügbar im Container – ignorieren oder auf fallback setzen
+    pass
+
 os.makedirs("data", exist_ok=True)
 
 logging.basicConfig(
