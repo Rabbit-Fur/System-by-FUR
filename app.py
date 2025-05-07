@@ -11,6 +11,8 @@ from config import Config
 from leaderboard import leaderboard_bp
 from public import public_bp
 from utils.i18n import get_translator
+from app.db import close_db
+
 
 # === Logging Setup ===
 logging.basicConfig(level=logging.INFO)
@@ -42,7 +44,7 @@ def close_db(e=None):
         db.close()
         log.debug("Database connection closed.")
 
-
+app.teardown_appcontext(close_db)
 # === App Factory ===
 def create_app(config_class=Config):
     """Erstellt und konfiguriert die Flask App."""
