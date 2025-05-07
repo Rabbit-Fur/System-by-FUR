@@ -1,0 +1,13 @@
+- name: Query Railway Project Info
+  run: |
+    curl --request POST \
+      --url https://backboard.railway.app/graphql/v2 \
+      --header "Project-Access-Token: ${{ secrets.RAILWAY_TOKEN }}" \
+      --header "Content-Type: application/json" \
+      --data '{
+        "query": "query GetProject($projectId: String!, $environmentId: String!) { project(id: $projectId) { id name environments(filter: {id: $environmentId}) { id name } } }",
+        "variables": {
+          "projectId": "3d686c91-9ff5-4770-aa1d-6836b12b0e84",
+          "environmentId": "bf30f88e-abe8-4032-8666-4cc19c8b8ef8"
+        }
+      }'
