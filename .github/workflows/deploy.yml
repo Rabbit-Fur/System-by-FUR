@@ -2,7 +2,7 @@
   run: |
     curl --request POST \
       --url https://backboard.railway.app/graphql/v2 \
-      --header "Project-Access-Token: ${{ secrets.RAILWAY_TOKEN }}" \
+      --header "Project-Access-Token: ${{ secrets.production }}" \
       --header "Content-Type: application/json" \
       --data '{
         "query": "query GetProject($projectId: String!, $environmentId: String!) { project(id: $projectId) { id name environments(filter: {id: $environmentId}) { id name } } }",
