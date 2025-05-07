@@ -2,12 +2,10 @@ import logging
 import sqlite3
 
 from flask import Blueprint, jsonify, request
-
-from app import get_db
+from app.db import get_db  # ✅ Statt: from app import get_db
 
 log = logging.getLogger(__name__)
 api_bp = Blueprint("api", __name__)
-
 
 # === Beispiel-Endpunkt ===
 @api_bp.route("/error")
