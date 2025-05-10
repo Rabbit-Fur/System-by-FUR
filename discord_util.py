@@ -1,5 +1,7 @@
 # Minimaler Stub für discord.py
+
 class Client:
+
     def __init__(self, *args, **kwargs):
         pass
 
@@ -10,7 +12,9 @@ class Client:
         pass
 
 
+
 class Intents:
+
     def __init__(self, **kwargs):
         pass
 

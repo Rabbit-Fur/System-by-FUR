@@ -1,33 +1,28 @@
-# Core Framework
-Flask==3.0.0
 Flask-Babel>=3.1.0
 Flask-Session==0.5.0
-Flask-Limiter
-Flask-WTF
-
-# Database
+Flask==3.0.0
 SQLAlchemy==2.0.23
-
-# Discord + Bot
-discord.py==2.3.2
 apscheduler
-tlgbotfwk
-
-# Translation + NLP
 deepl
-libretranslatepy
-
-# Utils
+discord.py==2.3.2
+flask
+flask-babel
+flask-limiter
+flask-wtf
 ics
+libretranslatepy
 pillow
 python-dateutil
-pytz
-requests==2.31.0
+python-dotenv
 python-dotenv==1.0.0
+pytz
 redis
+requests
+requests==2.31.0
+tlgbotfwk
 werkzeug
 
-# Dev Tools
+# Development & Testing
 pytest>=7.0.0
 flake8>=3.9.0
 isort>=5.0.0
