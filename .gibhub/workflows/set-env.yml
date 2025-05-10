@@ -1,0 +1,28 @@
+name: Set GitHub Secrets & Vars
+
+on:
+  workflow_dispatch:  # Manuell auslösbar im GitHub UI
+
+jobs:
+  set-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🐍 Installiere Python + Abhängigkeiten
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Abhängigkeiten installieren
+        run: |
+          pip install python-dotenv pynacl requests
+
+      - name: 🛠 Führe set_github_env.py aus
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GITHUB_REPO: Rabbit-Fur/GGW-FUR-SYSTEM
+        run: |
+          python set_github_env.py
