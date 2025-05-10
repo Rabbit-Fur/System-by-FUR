@@ -1,0 +1,49 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Railway Deployment API",
+    "version": "1.0.0",
+    "description": "Zugriff auf Railway Deployments & Secrets"
+  },
+  "servers": [
+    {
+      "url": "https://backboard.railway.app/api/v1"
+    }
+  ],
+  "paths": {
+    "/projects/{projectId}/deployments": {
+      "get": {
+        "operationId": "getDeployments",
+        "summary": "Liste alle Deployments",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Erfolgreich",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string" },
+                      "status": { "type": "string" },
+                      "createdAt": { "type": "string", "format": "date-time" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

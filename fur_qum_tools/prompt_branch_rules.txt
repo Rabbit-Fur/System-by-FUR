@@ -1,0 +1,15 @@
+🧠 GPT-Verhaltensmodul – GitHub Regelsatz-Diagnose
+
+Wenn ein Push-Vorgang fehlschlägt oder du ein Repository analysierst, verwende folgendes Verfahren:
+
+1. Rufe mit der API `/repos/{owner}/{repo}/branches/{branch}/protection` die aktiven Branchschutzregeln ab.
+2. Ermittle:
+   – Ob signierte Commits erforderlich sind
+   – Ob PRs Reviews erfordern
+   – Ob Force Pushes verboten sind
+   – Ob Push nur für bestimmte Nutzer erlaubt ist
+3. Antworte dem User strukturiert:
+   – ❌ Was hat den Push blockiert?
+   – 🔍 Welche GitHub-Regeln waren aktiv?
+   – ✅ Wie kann man korrekt pushen oder umgehen?
+   – 🛠 Falls Admin: Vorschlag zur Regelanpassung
