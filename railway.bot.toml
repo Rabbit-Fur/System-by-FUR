@@ -1,0 +1,20 @@
+[build]
+builder = "nixpacks"
+buildCommand = "python3 -m pip install -r requirements.txt"
+
+[deploy]
+startCommand = "python3 discord.py"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "on-failure"
+restartRetries = 10
+
+[env]
+DISCORD_TOKEN = "MTM2Mjg4ODY4ODk5MTczMTk2Mw.GwCPnB.3zjO7l4fScMhl__F0OOgzqEfN22PHVC6LdaoxM"
+DISCORD_GUILD_ID = "1344968805151019088"
+DISCORD_CHANNEL_ID = "1365580225945014385"
+DISCORD_ADMIN_ROLE_ID = "1345007778871115846"
+ADMIN_ROLE_IDS = "1345008298528604231"
+R4_ROLE_IDS = "1345008234527723520"
+R3_ROLE_IDS = "1345008403059179570"
+DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1363796827316420809/W7YjDFdVRcazdjranKBjHgQFY4KNTo578_wUhRCXZTk4leuMalPxnji33BzElz4eua-w"
