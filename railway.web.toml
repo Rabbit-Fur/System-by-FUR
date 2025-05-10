@@ -1,0 +1,19 @@
+[build]
+builder = "nixpacks"
+buildCommand = "python3 -m pip install -r requirements.txt"
+
+[deploy]
+startCommand = "python3 run.py"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "on-failure"
+restartRetries = 10
+
+[env]
+FLASK_ENV = "production"
+PORT = "5000"
+SESSION_SECRET = "4fa028caf6d5c91645e37d8ce1400ec1451285bcceafaa3ccf273fcb3396f913"
+DISCORD_CLIENT_ID = "136288868899173196"
+DISCORD_CLIENT_SECRET = "FqVmNprfXB_J15hBpgU-rXHGqBB9jvDB"
+DISCORD_REDIRECT_URI = "https://system-by-fur.up.railway.app//callback"
+BASE_URL = "https://system-by-fur.up.railway.app/"
