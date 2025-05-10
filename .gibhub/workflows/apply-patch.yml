@@ -1,0 +1,26 @@
+name: Apply Patches
+
+on:
+  push:
+    paths:
+      - 'patches/**'
+
+jobs:
+  apply-patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Copy patches
+        run: |
+          cp patches/app.py app.py
+          cp patches/requirements.txt requirements.txt
+
+      - name: Commit & Push
+        run: |
+          git config user.name "FUR Patch Bot"
+          git config user.email "bot@rabbitfur.ai"
+          git add app.py requirements.txt
+          git commit -m "patch: apply app.py and requirements.txt"
+          git push

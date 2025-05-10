@@ -1,0 +1,35 @@
+name: Auto Style Fix
+
+on:
+  workflow_dispatch:
+
+jobs:
+  format-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+  #    - name: Install Formatters
+  #      run: |
+  #        pip install black isort autoflake
+
+  #    - name: Autoflake (unused imports and vars)
+  #      run: |
+   #       autoflake --in-place --remove-all-unused-imports --remove-unused-variables -r .
+
+  #    - name: Run isort
+  #      run: isort .
+
+  #    - name: Run black
+  #      run: black .
+
+      - name: Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: auto-format with black, isort, autoflake"

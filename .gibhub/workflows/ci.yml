@@ -1,0 +1,44 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+#      - name: Lint with flake8
+ #       run: |
+ #         flake8 .
+
+  #    - name: Check Code Style with black
+ #       run: |
+#          black --check .
+#
+ #     - name: Check Import Order with isort
+  #      run: |
+   #       isort --check-only .
+
+      - name: Run Tests with pytest
+        run: |
+          pytest --maxfail=1 -q
+
+      - name: Health Check Endpoint
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" http://localhost:5000/health
