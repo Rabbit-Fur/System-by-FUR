@@ -5,9 +5,9 @@ import signal
 import sys
 import threading
 
-from app import create_app
 from bot.bot_main import main as start_discord_bot
 from init_db_core import init_db  # ✅ Korrekt: aus init_db_core.py importieren
+from main_app import create_app
 
 # === Datenbank Initialisieren ===
 try:

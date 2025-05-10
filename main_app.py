@@ -7,12 +7,11 @@ from flask_wtf.csrf import CSRFProtect
 
 from admin import admin_bp
 from api import api_bp
+from app.db import close_db
 from config import Config
 from leaderboard import leaderboard_bp
 from public import public_bp
 from utils.i18n import get_translator
-from app.db import close_db
-
 
 # === Logging Setup ===
 logging.basicConfig(level=logging.INFO)
@@ -44,7 +43,24 @@ def close_db(e=None):
         db.close()
         log.debug("Database connection closed.")
 
-app.teardown_appcontext(close_db)
+
+# ✅ Innerhalb der Funktion create_app
+def create_app(config_class=Config):
+    app = Flask(__name__, static_folder="static", template_folder=os.path.join(os.path.dirname(__file__), "templates"))
+    app.config.from_object(config_class)
+
+    CSRFProtect(app)
+
+    # Register Blueprints
+    app.register_blueprint(admin_bp)
+    app.register_blueprint(api_bp)
+    app.register_blueprint(leaderboard_bp)
+    app.register_blueprint(public_bp)
+
+    # ✅ Teardown korrekt hier:
+    app.teardown_appcontext(close_db)
+
+
 # === App Factory ===
 def create_app(config_class=Config):
     """Erstellt und konfiguriert die Flask App."""
