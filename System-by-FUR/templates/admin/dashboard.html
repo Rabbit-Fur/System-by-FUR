@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+  <h2>{{ _('Admin Übersicht') }}</h2>
+
+  <div class="flex">
+    <a class="btn" href="{{ url_for('admin.events') }}">{{ _('Events verwalten') }}</a>
+    <a class="btn" href="{{ url_for('admin.create_event') }}">{{ _('Neues Event erstellen') }}</a>
+    <a class="btn" href="{{ url_for('admin.participants') }}">{{ _('Teilnehmer') }}</a>
+    <a class="btn" href="{{ url_for('admin.leaderboards') }}">{{ _('Leaderboards') }}</a>
+    <a class="btn" href="{{ url_for('admin.calendar') }}">{{ _('Kalender') }}</a>
+    <a class="btn" href="{{ url_for('admin.translations') }}">{{ _('Übersetzungen') }}</a>
+    <a class="btn" href="{{ url_for('admin.tools') }}">{{ _('Tools') }}</a>
+    <a class="btn" href="{{ url_for('admin.settings') }}">{{ _('Einstellungen') }}</a>
+    <a class="btn" href="{{ url_for('admin.downloads') }}">{{ _('Downloads') }}</a>
+  </div>
+{% endblock %}

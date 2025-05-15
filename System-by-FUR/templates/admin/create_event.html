@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Event erstellen{% endblock %}
+{% block content %}
+  <h2>{{ _('Neues Event erstellen') }}</h2>
+
+  <form method="post">
+    <label for="title">{{ _('Titel') }}</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="description">{{ _('Beschreibung') }}</label>
+    <textarea id="description" name="description"></textarea>
+
+    <label for="event_time">{{ _('Datum & Uhrzeit') }}</label>
+    <input type="datetime-local" id="event_time" name="event_time" required>
+
+    <label for="role">{{ _('Zielrolle') }}</label>
+    <input type="text" id="role" name="role">
+
+    <label for="recurrence">{{ _('Wiederholung') }}</label>
+    <select id="recurrence" name="recurrence">
+      <option value="">{{ _('Keine') }}</option>
+      <option value="daily">{{ _('Täglich') }}</option>
+      <option value="weekly">{{ _('Wöchentlich') }}</option>
+      <option value="monthly">{{ _('Monatlich') }}</option>
+    </select>
+
+    <button type="submit" class="btn">{{ _('Erstellen') }}</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,147 @@
+/* === Basis === */
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: #111;
+  color: #f0f0f0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+header {
+  background: #222;
+  padding: 1rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+h1, h2, h3 {
+  color: #ffcc00;
+  margin-top: 1rem;
+}
+
+p, ul, ol {
+  line-height: 1.6;
+}
+
+/* === Buttons === */
+.btn {
+  background-color: #f90;
+  color: #000;
+  padding: 0.6em 1.2em;
+  border-radius: 0.3em;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0.5rem 0;
+}
+
+.btn:hover {
+  background-color: #ffa733;
+}
+
+/* === Karten, Panels, Blöcke === */
+.panel, .card, .box {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
+}
+
+/* === Tabellen === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+table th, table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #333;
+  text-align: left;
+}
+
+table th {
+  background: #222;
+  color: #ffcc00;
+}
+
+/* === Formulare === */
+input[type="text"],
+input[type="password"],
+input[type="datetime-local"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6em;
+  margin: 0.4em 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #222;
+  color: #f0f0f0;
+}
+
+label {
+  display: block;
+  margin-top: 1em;
+  font-weight: bold;
+  color: #ddd;
+}
+
+/* === Footer === */
+footer {
+  background: #1a1a1a;
+  color: #aaa;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* === Kalender (FullCalendar) === */
+.fc {
+  background-color: #222;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.fc-event {
+  background-color: #f90;
+  border: none;
+  padding: 0.4em;
+  font-size: 0.9em;
+  color: #000;
+}
+
+/* === Sonstiges === */
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+img.flag {
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: middle;
+}

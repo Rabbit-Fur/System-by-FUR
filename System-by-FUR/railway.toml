@@ -1,0 +1,18 @@
+[build]
+builder = "nixpacks"
+buildCommand = "python3 -m pip install -r requirements.txt"
+
+[deploy]
+startCommand = "python3 run.py"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+
+[env]
+FLASK_ENV = "production"
+PORT = "5000"
+DISCORD_CLIENT_ID = "136288868899173196"
+DISCORD_CLIENT_SECRET = "FqVmNprfXB_J15hBpgU-rXHGqBB9jvDB"
+DISCORD_REDIRECT_URI = "https://system-by-fur.up.railway.app/callback"
+BASE_URL = "https://system-by-fur.up.railway.app"
+
+# 🔒 KEINE DISCORD_TOKEN oder WEBHOOKS im Klartext!

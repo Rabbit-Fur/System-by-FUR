@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}Kalender{% endblock %}
+{% block content %}
+  <h2>{{ _('Kalender') }}</h2>
+  <div id="calendar"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var calendar = new FullCalendar.Calendar(document.getElementById("calendar"), {
+      initialView: "dayGridMonth",
+      events: {{ events_json | safe }}
+    });
+    calendar.render();
+  });
+</script>
+{% endblock %}

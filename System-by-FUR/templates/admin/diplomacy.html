@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block title %}Diplomatie{% endblock %}
+{% block content %}
+  <h2>{{ _('Diplomatische Beziehungen') }}</h2>
+
+  {% if allies %}
+    <div class="panel">
+      <h3>{{ _('Verbündete Nationen') }}</h3>
+      <ul>
+        {% for ally in allies %}
+          <li>
+            {% if ally.flag %}
+              <img src="{{ url_for('static', filename='flags/' ~ ally.flag) }}" alt="{{ ally.name }}" class="flag">
+            {% endif %}
+            {{ ally.name }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% if enemies %}
+    <div class="panel">
+      <h3>{{ _('Feindliche Nationen') }}</h3>
+      <ul>
+        {% for enemy in enemies %}
+          <li>
+            {% if enemy.flag %}
+              <img src="{{ url_for('static', filename='flags/' ~ enemy.flag) }}" alt="{{ enemy.name }}" class="flag">
+            {% endif %}
+            {{ enemy.name }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endblock %}

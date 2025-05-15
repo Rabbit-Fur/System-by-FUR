@@ -1,0 +1,18 @@
+language = "python"
+run = "python run.py"
+entrypoint = "run.py"
+modules = ["python-3.11"]
+
+[unitTest]
+language = "python3"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
+
+[deployment]
+run = ["python3", "run.py"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 5000
+externalPort = 80

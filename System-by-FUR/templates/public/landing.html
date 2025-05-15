@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block title %}Start{% endblock %}
+{% block content %}
+  <h1>🐺 {{ _('Willkommen bei System by FUR') }}</h1>
+  <p>{{ _('Das zentrale Portal für Events, Auszeichnungen und Ruhm.') }}</p>
+  <a class="btn" href="{{ url_for('public.login') }}">{{ _('Login mit Discord') }}</a>
+{% endblock %}

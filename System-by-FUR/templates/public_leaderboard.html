@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}Leaderboard Öffentlich{% endblock %}
+{% block content %}
+  <h2>{{ _('Öffentliche Bestenliste') }}</h2>
+  {% for category, rows in leaderboard.items() %}
+    <div class="panel">
+      <h3>{{ category }}</h3>
+      <ol>
+        {% for row in rows %}
+          <li>{{ row.username }} – {{ row.score }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+  {% endfor %}
+{% endblock %}
