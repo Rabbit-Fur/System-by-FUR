@@ -1,0 +1,2 @@
+# Monatliche Championdaten
+champions = []

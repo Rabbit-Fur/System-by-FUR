@@ -1,0 +1,1 @@
+{ "modules": ["main.py", "bot_main.py", "reminder_cog.py"] }

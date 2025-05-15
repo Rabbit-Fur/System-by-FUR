@@ -1,0 +1,3 @@
+# Champion Poster Generator
+from PIL import Image
+# ...

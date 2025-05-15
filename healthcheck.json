@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "components": {
+    "flask_app": "running",
+    "discord_bot": "pending",
+    "core_monitor": "idle"
+  },
+  "timestamp": "2025-05-13T22:00:00Z"
+}

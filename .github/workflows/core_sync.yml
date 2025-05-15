@@ -1,0 +1,45 @@
+name: Core Sync Generator
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.py'
+      - '**.html'
+      - '**.css'
+      - '**.env'
+      - '**/cogs/**'
+      - '**/templates/**'
+      - '**/static/**'
+
+jobs:
+  generate-core-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Run core file generator
+        run: |
+          python generate_core_files.py
+
+      - name: Commit and push core updates
+        run: |
+          git config user.name "FUR QUM AutoAgent"
+          git config user.email "fur@system-by-fur.dev"
+          git add core/
+          git commit -m "🔄 Auto-update: Core-Systemdaten regeneriert"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
