@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: FUR QUM Env API
+  version: 1.0.0
+  description: Validiert Umgebungsvariablen für das System-by-FUR Projekt
+servers:
+  - url: https://api.system-by-fur.dev
+    description: Hauptserver für Umgebungsvalidierung
+paths:
+  /env/validate:
+    post:
+      operationId: validateEnv
+      summary: Validiert Umgebungsvariablen gegen das FUR QUM Schema
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnvSchema'
+      responses:
+        '200':
+          description: Validierung erfolgreich
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+                    example: true
+        '400':
+          description: Validierungsfehler
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+                    example: false
+                  errors:
+                    type: array
+                    items:
+                      type: string
+components:
+  schemas:
+    EnvSchema:
+      type: object
+      required: [GITHUB_REPO, GITHUB_TOKEN, DISCORD_TOKEN, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET,
+                 DISCORD_GUILD_ID, DISCORD_CHANNEL_ID, DISCORD_ADMIN_ROLE_ID, ADMIN_ROLE_IDS, R4_ROLE_IDS,
+                 R3_ROLE_IDS, DISCORD_REDIRECT_URI, DISCORD_WEBHOOK_URL, BASE_URL, SESSION_SECRET,
+                 GOOGLE_CLIENT_ID, GOOGLE_PROJECT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_AUTH_URI,
+                 GOOGLE_TOKEN_URI, GOOGLE_AUTH_PROVIDER_CERT_URL, GOOGLE_REDIRECT_URI]
+      properties:
+        GITHUB_REPO: {type: string, pattern: ^.+/.+$}
+        GITHUB_TOKEN: {type: string, minLength: 30}
+        DISCORD_TOKEN: {type: string, minLength: 30}
+        DISCORD_CLIENT_ID: {type: string}
+        DISCORD_CLIENT_SECRET: {type: string}
+        DISCORD_GUILD_ID: {type: string}
+        DISCORD_CHANNEL_ID: {type: string}
+        DISCORD_ADMIN_ROLE_ID: {type: string}
+        ADMIN_ROLE_IDS: {type: string}
+        R4_ROLE_IDS: {type: string}
+        R3_ROLE_IDS: {type: string}
+        DISCORD_REDIRECT_URI: {type: string, format: uri}
+        DISCORD_WEBHOOK_URL: {type: string, format: uri}
+        BASE_URL: {type: string, format: uri}
+        SESSION_SECRET: {type: string, minLength: 32}
+        GOOGLE_CLIENT_ID: {type: string}
+        GOOGLE_PROJECT_ID: {type: string}
+        GOOGLE_CLIENT_SECRET: {type: string}
+        GOOGLE_AUTH_URI: {type: string, format: uri}
+        GOOGLE_TOKEN_URI: {type: string, format: uri}
+        GOOGLE_AUTH_PROVIDER_CERT_URL: {type: string, format: uri}
+        GOOGLE_REDIRECT_URI: {type: string, format: uri}

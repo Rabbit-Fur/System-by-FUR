@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}Event Details{% endblock %}
+{% block content %}
+  <h2>{{ event.title }}</h2>
+  <p><strong>{{ _('Zeit') }}:</strong> {{ event.event_time }}</p>
+  <p><strong>{{ _('Beschreibung') }}:</strong> {{ event.description }}</p>
+  <p><strong>{{ _('Rolle') }}:</strong> {{ event.role }}</p>
+
+  <h3>{{ _('Teilnehmer') }}</h3>
+  <ul>
+    {% for participant in participants %}
+      <li>{{ participant.username }} {% if participant.checked_in %}✔️{% endif %}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Event-Liste{% endblock %}
+{% block content %}
+  <h2>{{ _('Kommende Events') }}</h2>
+  {% if events %}
+    <ul>
+      {% for event in events %}
+        <li>
+          <strong>{{ event.title }}</strong> – {{ event.event_time }} 
+          <a class="btn" href="{{ url_for('public.view_event', event_id=event.id) }}">{{ _('Details') }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>{{ _('Keine geplanten Events.') }}</p>
+  {% endif %}
+{% endblock %}

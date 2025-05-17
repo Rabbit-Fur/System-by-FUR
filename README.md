@@ -1,17 +1,4 @@
-# FUR System – Core Deployment Package
+# GGW-FUR-SYSTEM
 
-## Inhalt
-- GPT Module (LangChain, Prompting, Poster)
-- Auth Strategie (Discord OAuth2)
-- Deploybare Taskfile
-- Beispiel `.env` für lokale Konfiguration
-
-## Starten
-```bash
-task dev
-```
-
-## Deployment
-```bash
-task deploy
-```
+"# System-by-FUR" 
+"# System-by-FUR" 

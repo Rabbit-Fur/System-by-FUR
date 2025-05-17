@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+  <h2>{{ _('Login erforderlich') }}</h2>
+  <p>{{ _('Bitte melde dich über Discord an.') }}</p>
+  <a class="btn" href="{{ url_for('public.discord_login') }}">{{ _('Mit Discord einloggen') }}</a>
+{% endblock %}

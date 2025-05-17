@@ -1,0 +1,35 @@
+{% if 'r3' in session.get('role_ids', []) or 'r4' in session.get('role_ids', []) or session.get('admin_logged_in') %}
+{% extends "layout.html" %}
+{% block title %}Mitgliederstatistiken{% endblock %}
+{% block content %}
+  <h2>{{ _('Deine Statistiken') }}</h2>
+
+  <div class="panel">
+    <h3>{{ _('Raid-Punkte') }}</h3>
+    <p>{{ _('Punkte insgesamt') }}: {{ stats.raids or 0 }}</p>
+  </div>
+
+  <div class="panel">
+    <h3>{{ _('Spenden') }}</h3>
+    <p>{{ _('Gespendet') }}: {{ stats.donations or 0 }}</p>
+  </div>
+
+  <div class="panel">
+    <h3>{{ _('Teilnahmen an Events') }}</h3>
+    <p>{{ _('Events besucht') }}: {{ stats.participations or 0 }}</p>
+  </div>
+
+  <div class="panel">
+    <h3>{{ _('Ehrenhalle') }}</h3>
+    {% if stats.hall_of_fame %}
+      <ul>
+        {% for entry in stats.hall_of_fame %}
+          <li>{{ entry.month }}: {{ entry.title }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>{{ _('Keine Einträge') }}</p>
+    {% endif %}
+  </div>
+{% endblock %}
+{% endif %}

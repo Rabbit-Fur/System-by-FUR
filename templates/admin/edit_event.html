@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Event bearbeiten{% endblock %}
+{% block content %}
+  <h2>{{ _('Event bearbeiten') }}</h2>
+
+  <form method="post">
+    <label for="title">{{ _('Titel') }}</label>
+    <input type="text" id="title" name="title" value="{{ event.title }}" required>
+
+    <label for="description">{{ _('Beschreibung') }}</label>
+    <textarea id="description" name="description">{{ event.description }}</textarea>
+
+    <label for="event_time">{{ _('Datum & Uhrzeit') }}</label>
+    <input type="datetime-local" id="event_time" name="event_time"
+           value="{{ event.event_time.replace(' ', 'T') }}" required>
+
+    <label for="role">{{ _('Zielrolle') }}</label>
+    <input type="text" id="role" name="role" value="{{ event.role }}">
+
+    <label for="recurrence">{{ _('Wiederholung') }}</label>
+    <select id="recurrence" name="recurrence">
+      <option value="" {% if not event.recurrence %}selected{% endif %}>{{ _('Keine') }}</option>
+      <option value="daily" {% if event.recurrence == 'daily' %}selected{% endif %}>{{ _('Täglich') }}</option>
+      <option value="weekly" {% if event.recurrence == 'weekly' %}selected{% endif %}>{{ _('Wöchentlich') }}</option>
+      <option value="monthly" {% if event.recurrence == 'monthly' %}selected{% endif %}>{{ _('Monatlich') }}</option>
+    </select>
+
+    <button type="submit" class="btn">{{ _('Speichern') }}</button>
+  </form>
+{% endblock %}
