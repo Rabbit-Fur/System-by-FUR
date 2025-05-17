@@ -1,8 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 gunicorn>=20.1.0
 =======
 gunicorn
 >>>>>>> e19e612 (🐍 Fix: gunicorn zu requirements.txt hinzugefügt (Deployment-Fix))
+=======
+>>>>>>> c0cdf33 (🛠️ Fix: gunicorn zu requirements.txt hinzugefügt & Projekt aktualisiert)
 Flask-Babel>=3.1.0
 Flask-Session==0.5.0
 Flask==3.0.0
@@ -33,3 +36,4 @@ flake8>=3.9.0
 isort>=5.0.0
 black>=23.0.0
 autoflake>=1.4
+gunicorn

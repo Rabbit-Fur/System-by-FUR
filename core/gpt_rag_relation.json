@@ -1,0 +1,32 @@
+{
+  "Champion": [
+    "poster.py",
+    "discord_cogs/champion_cog.py",
+    "hall_of_fame.html"
+  ],
+  "Reminder": [
+    "reminder_cog.py",
+    "scheduler.py",
+    "translations/de.po"
+  ],
+  "EventSystem": [
+    "events.py",
+    "event_reminder.py",
+    "db/events.sqlite"
+  ],
+  "Security": [
+    ".env",
+    "oauth_handler.py",
+    "role_check.py"
+  ],
+  "CI/CD": [
+    ".github/workflows/main.yml",
+    "fix_report.md",
+    "pre_commit_config.yaml"
+  ],
+  "Translation": [
+    "i18n/en.po",
+    "i18n/vi.po",
+    "flags.json"
+  ]
+}

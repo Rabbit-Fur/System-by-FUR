@@ -1,14 +1,17 @@
-# 🐇 FUR SYSTEM – Bereinigte Version
+# FUR System – Core Deployment Package
 
-Dies ist die bereinigte, push-bereite Version deines Systems.
+## Inhalt
+- GPT Module (LangChain, Prompting, Poster)
+- Auth Strategie (Discord OAuth2)
+- Deploybare Taskfile
+- Beispiel `.env` für lokale Konfiguration
 
-## ✅ Bereit für GitHub Push:
+## Starten
 ```bash
-git init
-git add .
-git commit -m "🚀 Clean Initial Commit"
-git remote add origin https://github.com/Rabbit-Fur/System-by-FUR.git
-git push -u origin main --force
+task dev
 ```
 
-Alle sensitiven Dateien und Tokens wurden entfernt.
+## Deployment
+```bash
+task deploy
+```

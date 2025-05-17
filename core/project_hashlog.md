@@ -1,0 +1,138 @@
+# 🔐 Projektzustands-Hashlog
+
+Dies ist ein Fingerabdruck aller aktuell bekannten .py, .json, .md, .html etc. Dateien (aus ZIP, Core und dynamischem Kontext).
+
+- `FUR MATRIX/README.md` → `5eec1ec5f3452a71d277e2dbe058b9759e9c266986521c267a87b67ca4c23bc6`
+- `FUR MATRIX/System-by-FUR/README.md` → `c31dfe3782c74ec4dfc2876877193240a89fc665c86b9a601b6694d27e2a22c6`
+- `FUR MATRIX/System-by-FUR/admin/__init__.py` → `8677e30babb5cbfb0e3242243e08b64ba57e97e3ddfb03ccc984441e46cb7674`
+- `FUR MATRIX/System-by-FUR/admin/routes.py` → `d46e1d4fa58458c22a6368e67e9ab5154dea2f860c01479637cc331bda29d26e`
+- `FUR MATRIX/System-by-FUR/api/__init__.py` → `8ae1f7f6943ecdfc399ff29d4d9a3a889ac2044947f8005ad621dd952899021b`
+- `FUR MATRIX/System-by-FUR/api/routes.py` → `7ab6bca757eeb208f34cfc3361fba43995acdb37f47c65abce57049cbc98b89e`
+- `FUR MATRIX/System-by-FUR/app/db.py` → `4225942abd827ee6a076c592027ca0f0b3354ae0b078b9503374a4c1ab9af490`
+- `FUR MATRIX/System-by-FUR/app_factory.py` → `e1182afbd491b16b883dc3710e6a58bc2443f29d2b174381efecc2934285c6de`
+- `FUR MATRIX/System-by-FUR/auto_fixer.py` → `93aef0dfcc74fbc39a531424e430e8b691b1e8ebe19d6e3c4d40e51c8460b350`
+- `FUR MATRIX/System-by-FUR/bot/__init__.py` → `8ad9e131f49a6e613141c5dc73bca831b913bac7699874724318a95cdd1ce403`
+- `FUR MATRIX/System-by-FUR/bot/bot_main.py` → `4bb089bb135c6e7984f234ab460c2b21e20f6183c05e6d0affaf711b0f398f9e`
+- `FUR MATRIX/System-by-FUR/bot/cogs/__init__.py` → `1cf49186802055e8265fe5cb4b70e0256aaf5a7347de10785bb5e2463b7d076c`
+- `FUR MATRIX/System-by-FUR/bot/cogs/base_commands.py` → `5469f24af4b87088cf18c1548ce595fbeff6e0eba17abe4100b78a92251852af`
+- `FUR MATRIX/System-by-FUR/bot/cogs/leaderboard.py` → `90b59f1a74e3eb624a92de6d28534b7ccf547f57aa37ed879005625d577880d2`
+- `FUR MATRIX/System-by-FUR/bot/cogs/newsletter.py` → `d12ab8155fbdfb2657a3f4d04f923ace0fed3ea29f213433e11b7d5f26ceb4d2`
+- `FUR MATRIX/System-by-FUR/bot/cogs/reminder_cog.py` → `26beceb4796e0bc6a0f87e314da987f617f4b035a6f81cd5860a645bf704c537`
+- `FUR MATRIX/System-by-FUR/bot/cogs/reminders.py` → `765b4186862323509c42ae2c32e014040d1b3f3cbf878a2c16e7525cc13454d4`
+- `FUR MATRIX/System-by-FUR/config.py` → `fbb71b552cbe3672dddf050f8dcd7a4f6a7ad99f3c322f7095830b21ececff72`
+- `FUR MATRIX/System-by-FUR/core/logging/logtail_logger.py` → `8de3d012baf1200b67adc63e1a43bddb410e87aa5b954d0bb8dcb48aaf0d8ef3`
+- `FUR MATRIX/System-by-FUR/create_admin_user.py` → `ec6b0df57229995915e6494f7f29b324f71b57d7c48c41c09afc3950dd3d71d1`
+- `FUR MATRIX/System-by-FUR/discord_util.py` → `21354f94cd8fe9a405199aa0481d00d4da28cdee4be4a553cfb1edc725fc8245`
+- `FUR MATRIX/System-by-FUR/env_helpers.py` → `4788e65885e9c416a7be25b172f47abdc5fb6e2994429fe30b0feb05180b3aba`
+- `FUR MATRIX/System-by-FUR/event_test_seed.py` → `c9bf996532c5a9858439b1703cdaf60173c6e16a20e395de75ec2a4e0e7e407c`
+- `FUR MATRIX/System-by-FUR/extract_i18n_keys.py` → `4132a89238bcd52927891c91323c773508bfc65f6a8d7264b96c219db31390a9`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/.env.schema.json` → `03e545515e46d40df2d4d5c7273d0e61d3ca4493e56219acb9f5a20505952a27`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/.well-known/env-validator.yaml` → `acaa7addaa42403c3d54e6b23967ca4a92c42fcc4a2fd743e91605b07a2016dd`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/README.md` → `be6d41cdb0d551c11946dcca63a6ca22903d71f8ee5b17545db7885cd4530631`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/github-branch-rules/README.md` → `909e3bea0ef8a57cd897fceb9c54af0c70a4072de2f422b3968c54ca4d3a3741`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/github-branch-rules/github_branch_rules_openapi.json` → `715bedd41073f201e3fcae771c28a22a80d3d31f608c4d0b991f1661316fc4e7`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/github-branch-rules/prompt_branch_rules.txt` → `338a5aa12d0c77110bbdacfc635d1e4bf0e684646ed4e944bb70734d824580a8`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/github-branch-rules/tool_branch_rules.yaml` → `509426116d2616f0a626acea1854f184d9855297796a2fb0bed6335051e5578d`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/openapi.yaml` → `ff3d3fa32c7cc12f85c586f3a2c65da161a53bb2d51f42e30dce13f0ce8317f6`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/prompt_branch_rules.txt` → `5e2127db144915a05c9f3abdfb6b6d497d8046a523d26780ebdc083fc2ea528b`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/railway_openapi.json` → `d1313792158747cfac37a98437468aec4affc41098155759eeeb5f037f0fa482`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/tool_branch_rules.yaml` → `c2f35c6383e4dd461edd9eb43d6a3b6dce778529f59f18537ec287b18fd3aa8a`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/tool_env.yaml` → `6b3f539b51cc0b9c3d79af93623f4e87b1021d75cb79aaae76dc826a35d0c2e3`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/tool_github.yaml` → `e6cec1d555bc19ca05a48c6408d756de97364c04970fbef8c3a7787b30b5c477`
+- `FUR MATRIX/System-by-FUR/fur_qum_tools/tool_railway.yaml` → `130ecaf31fbbcfc001e721b2f4db9394aa7f22956efab6db4094f28a30a5d0c6`
+- `FUR MATRIX/System-by-FUR/github_api.py` → `1b94e825aa02d6db52e7eaa8fa636fe375b359cea73c120c74a1a81a5fff72f5`
+- `FUR MATRIX/System-by-FUR/github_service.py` → `06538acdaa83fc66703dddad036c16a725bb06d9aa791990b8fd172bc7fba4bf`
+- `FUR MATRIX/System-by-FUR/healthcheck.py` → `55e4b0b0e92b9ba5ace968fc2d3120720d17555aaaed112dd81512da2ff28efd`
+- `FUR MATRIX/System-by-FUR/init_db_core.py` → `75d48c2e0e71a61d2dea14839406c144c1a9de63d196970e16303e79d06640bd`
+- `FUR MATRIX/System-by-FUR/insert_champion.py` → `6d6ae22003fe74649ff05773e5028c68355f319ce49a3456b53d1b4d62e7fc65`
+- `FUR MATRIX/System-by-FUR/leaderboard/__init__.py` → `726265116005a6609844e863a0b75af2d4537e2f39f57ea536162f82a16e6514`
+- `FUR MATRIX/System-by-FUR/leaderboard/routes.py` → `5d6ce3374f71b1c0792c0ad87a81ee9d9ea71f5b17820e78ed516ef991d20d35`
+- `FUR MATRIX/System-by-FUR/main.py` → `9f59003e31ed7705db1a224ba0db707d2cf7eab0883141deaac0086f0a5dbf71`
+- `FUR MATRIX/System-by-FUR/main_app.py` → `e90804e3208fef5900327804e507000008e3007d91f786ad1467abcd9eb92a4e`
+- `FUR MATRIX/System-by-FUR/projektstruktur.txt` → `26586a5b8531a8ca947062a85b3970adc5de6ec52a075bc4734303d52e14e585`
+- `FUR MATRIX/System-by-FUR/public/__init__.py` → `521d2115bdb27685137e82584961a32a6507e3f67e57c4113823751cf32efc98`
+- `FUR MATRIX/System-by-FUR/public/routes.py` → `2891337579741058a3936b64539307fd0e25d02061077797edc501004c684a04`
+- `FUR MATRIX/System-by-FUR/reminder_check_manual.py` → `50d8ef8a5a7cd69b575d49fdb10c0394764fd03c41e32a24e0622136eecb0c71`
+- `FUR MATRIX/System-by-FUR/requirements.txt` → `ea6bd18d6b58cb0c89a78a3a0c609e9d214e4f8e230291791d03dd11de604efb`
+- `FUR MATRIX/System-by-FUR/run.py` → `ff06f79de2dd4cf5229713f3a1fdd8aa9d2651f89e4db47508dc4304ed98d993`
+- `FUR MATRIX/System-by-FUR/seed_db.py` → `be654c72437108ca1f7fe2dd3d5708fe98ad1cdff0f51c93b64f8c2ec5ac3f19`
+- `FUR MATRIX/System-by-FUR/send_champion_to_discord.py` → `cdedbd0dad2a8b45d31c109a8d5238bb2640d10078ce354d27fb4a622192c7b7`
+- `FUR MATRIX/System-by-FUR/static/css/style.css` → `282c46c926c1b3c1964d4163df0b16285bfd7975670d1793006d1a16e2fb14d4`
+- `FUR MATRIX/System-by-FUR/static/flags/README.md` → `4c75b9298a5087ff3a100f072fc5762d3739fa6ef7cd9e6c21e7d808eca4832a`
+- `FUR MATRIX/System-by-FUR/templates/admin/admin.html` → `6a06ae55198356b1bb5842d5909f4e457d2ac032e6e0dc9de18615de5e15264e`
+- `FUR MATRIX/System-by-FUR/templates/admin/calendar.html` → `4a0d4d12c82b7ac59dec32acce5bd340064030555baf3b020b2d30f0257a5dae`
+- `FUR MATRIX/System-by-FUR/templates/admin/create_event.html` → `41eda3dba3d7c6488f9b460298d069103b9ed650355d56f2b40374cf8ef030f2`
+- `FUR MATRIX/System-by-FUR/templates/admin/dashboard.html` → `dbab9ebe1895db008172cdac176da783412f898c889be2920e8c92e8ea2f3cb7`
+- `FUR MATRIX/System-by-FUR/templates/admin/diplomacy.html` → `585264c47914c0ab204e9122696060e328d90e5b66a45d777c641f0e52725bc9`
+- `FUR MATRIX/System-by-FUR/templates/admin/downloads.html` → `7256be2cafcf8cf2b1ead174aaddd0936a7ba92b17152a358caa81db7d4a4cb1`
+- `FUR MATRIX/System-by-FUR/templates/admin/edit_event.html` → `eeae75d8b6469f9d0bef21f1f26143c81f95297d841e55c3b7d99f49aa82da58`
+- `FUR MATRIX/System-by-FUR/templates/admin/events.html` → `4613795a36dbc8dc5116d05d66cc589cfcfd83203e64914c6eb2034bd234ab10`
+- `FUR MATRIX/System-by-FUR/templates/admin/leaderboards.html` → `34cd72d6e1b2257614c7a6e17bb59fe8553cfeb3872ece2cde89fc6b4cdadd21`
+- `FUR MATRIX/System-by-FUR/templates/admin/participants.html` → `4e697275ae3cddc9d1cc08ddd2e8e472181bbf08836b967a787699af91ed449b`
+- `FUR MATRIX/System-by-FUR/templates/admin/settings.html` → `286f93f2caef1c13c650d618fbe6ce8972c46f819ab2f894901823db2b258be3`
+- `FUR MATRIX/System-by-FUR/templates/admin/tools.html` → `0a1cf1dfa17ea9d48fd27bcc7a165562acbabcf433bbda734d9b75222ab61e86`
+- `FUR MATRIX/System-by-FUR/templates/admin/translations_editor.html` → `cdb1d4aea96607d65e027ab0a72beb5c29570b0a1139ce9c196eb21b5c72749e`
+- `FUR MATRIX/System-by-FUR/templates/base.html` → `153042e6b1660f81b0db0b5cb0485375fae6bcd3c69b17ad72db13d60d78262b`
+- `FUR MATRIX/System-by-FUR/templates/calendar.html` → `e5cf55fed1952013b2970e86f99a0e54e9c6054fb99286cdbd3f0b53e94b6b93`
+- `FUR MATRIX/System-by-FUR/templates/dashboard.html` → `dc360d6f35c30f397ddd42fada98d602d78c4ca694e49ebf9312ff9d49a0d904`
+- `FUR MATRIX/System-by-FUR/templates/error.html` → `2de050b7f7b1d8a57a06ac8e9c30e5be8d699cbd44e33ab7353456c1e0679ebf`
+- `FUR MATRIX/System-by-FUR/templates/events_list.html` → `bbf217e8d482b963a549293538e51429651013574af6377b99b886d488816af3`
+- `FUR MATRIX/System-by-FUR/templates/hall_of_fame.html` → `f6616a3e6e405b4cb93ae929395be0108b5a9009317d0817a928aba10f6401f0`
+- `FUR MATRIX/System-by-FUR/templates/landing.html` → `ca26107ba8c8e66ee18ae531f9dbc80590bb8bb0b5bbecfb79014199ebe1c89a`
+- `FUR MATRIX/System-by-FUR/templates/layout.html` → `859f34fd6c9dadf3f7cd13fe59b636ce786b015feba353ba0b8666686d0257eb`
+- `FUR MATRIX/System-by-FUR/templates/leaderboard/leaderboards.html` → `6066a9bb4b6d6d1ed6c67091b5025cc5f0ed9af9bed8b3757e15d662771a0b30`
+- `FUR MATRIX/System-by-FUR/templates/login.html` → `d50eb82921445ea3dc5bb83a01a60766f5f6aceb92106a9e64b6aa4f88717154`
+- `FUR MATRIX/System-by-FUR/templates/lore.html` → `16b4badeb3fe71ac16223eb570a256d6e37daa2920467901eca08dbc0b89dbf5`
+- `FUR MATRIX/System-by-FUR/templates/members/member_dashboard.html` → `8560171363bea4cec87ee181694f210a172abc62b7049d95d8ceabdbf60eb580`
+- `FUR MATRIX/System-by-FUR/templates/members/member_downloads.html` → `0f8b2aa7e55c1370fc81020a2024d97d1ccbc37d08af395e2662f06d5f69c7f7`
+- `FUR MATRIX/System-by-FUR/templates/members/member_stats.html` → `32ade326f9abbca4b232e9bfd13c0d95035306449382a356688ad8794e89ddd6`
+- `FUR MATRIX/System-by-FUR/templates/members/settings.html` → `97f1a4bcb5eb3c828b8ebebabbb6136831bbd86e6505f3f663fb889c6933c619`
+- `FUR MATRIX/System-by-FUR/templates/public/__init__.py` → `ec91eb729dc8c2028c043ef1ce2d3a3004e78ac05da1696100c55759627722fa`
+- `FUR MATRIX/System-by-FUR/templates/public/calendar.html` → `a0118f9e8ed865215a47012df3483cb666d8e33116e064900b7396006580de0c`
+- `FUR MATRIX/System-by-FUR/templates/public/events_list.html` → `d97229ad0de2df6b5b730087dcc10558b9d4c082b2ab458872d17ac36d16c786`
+- `FUR MATRIX/System-by-FUR/templates/public/hall_of_fame.html` → `d409b3847d8f5fc14b6cf8c99f502be71b1da5ebc319258d427a5eb9f517fc4d`
+- `FUR MATRIX/System-by-FUR/templates/public/landing.html` → `81e6fe3a35c3e68eff3f52c82eefa71be03cf6bcc1a95bb78142ed628b3bbf83`
+- `FUR MATRIX/System-by-FUR/templates/public/login.html` → `d11c41d681c093bc85c38f3b0e033318d9d7863de15fd7d9d0a64218269ac203`
+- `FUR MATRIX/System-by-FUR/templates/public/lore.html` → `948a83270ba003b3cf41e17e98bd872f3f601d120f554d31eea7536e4bf5b388`
+- `FUR MATRIX/System-by-FUR/templates/public/public_leaderboard.html` → `732f69b4001123cafe33c35f2cdf0771ab9f22e0b754a113af8209adf8a2bc79`
+- `FUR MATRIX/System-by-FUR/templates/public/routes.py` → `b105e4b10882f447642d2d98da63788d56faf1859677c1543ddb00ffcf94ecca`
+- `FUR MATRIX/System-by-FUR/templates/public/view_event.html` → `7c90a11292032229445d03fce4f93feadc99e735466a852abd27b75703656d2d`
+- `FUR MATRIX/System-by-FUR/templates/public_leaderboard.html` → `efdffc6ddcd8e70d3afc2401ec0269a788b91e1feff6db4fa332073eb856c341`
+- `FUR MATRIX/System-by-FUR/templates/view_event.html` → `de28f3b0a35be6bcd885d2feed3ee33b5514df89ea2fa8762082e5e8f511a4dd`
+- `FUR MATRIX/System-by-FUR/translate_sync.py` → `681c1025ed6181f15ab6773356eac799ebbf82cecf6c93444963e3f9803367cc`
+- `FUR MATRIX/System-by-FUR/translations/de.json` → `b4ee45fda815bc667b8415402bbd736e5218ee87c538cf42480d01625d32c9c3`
+- `FUR MATRIX/System-by-FUR/translations/en.json` → `a2486604c62a1aea500851cd0f971f8f3e5f5c60127ec766e7e7ce1aaf837b53`
+- `FUR MATRIX/System-by-FUR/untranslated_report.md` → `0b02e088dc4da6ef52b20e03bde584c3dbf4774cdc1ecdc858670fc137a84f62`
+- `FUR MATRIX/System-by-FUR/utils/__init__.py` → `70c2b96a188486799d88a16b3f58ce0a3ae432db588f3df3fa219a29056fbe32`
+- `FUR MATRIX/System-by-FUR/utils/i18n.py` → `7a76a68ceee6c962d2a17805d833d87ef7c3a8c715d1fde09cbf182114b59f76`
+- `FUR MATRIX/System-by-FUR/web.py` → `e40d1745fe0113fe3f8eed5296e4ec6ca2ad494c2f01f2b375019aaab26d8879`
+- `FUR MATRIX/System-by-FUR/wsgi.py` → `ff54025c32b7dc138da0dd839091013d3d80f148e7c552b5349c18fea8c91ff3`
+- `FUR MATRIX/champion_data.py` → `e6f71c198df184c68ec8a461f6918c83e579007a3885c7a082a72acd447dc28c`
+- `FUR MATRIX/core/module_registry.json` → `b523c06bee73dc9a73ef4211279607f4673e4932b9a785f0615ab9c9ab5bd755`
+- `FUR MATRIX/core/modules.md` → `4f72caffd914c3bafa9c3390edd8f1ab1e33a9d2feb9da34385011e9ef3d1434`
+- `FUR MATRIX/core/security_checks.json` → `b3717eefc394ebfec483a328f84161e13455d436c6dd41da4780c372a1ac587b`
+- `FUR MATRIX/core/system_health.json` → `d909b072be1a198c0a9008129edeea3f67d27c746fbc49f01a833908f63e840a`
+- `FUR MATRIX/core/version_log.md` → `73f53918496e73466cde038b8d9625d0687dcd3f89d0c03e0b9fefa1c3a9e748`
+- `FUR MATRIX/healthcheck.json` → `a0f5c56a4a2c445ad90c3595346a69e99047d088f8c75eb707b89cd68a22895d`
+- `FUR MATRIX/main.py` → `4bc5de78e9ff81dad19094738e61e0acb723466115d3dd3632958ae48fc5d805`
+- `FUR MATRIX/poster.py` → `faa2ecea17188a358fe4aeac00c40699842844fab5463674a2f410bbc0e7962b`
+- `argparse.py` → `c93fa5724c1b9bf2e909259aa3e283176f53c66f2293fffdf64895e94b007587`
+- `asyncio.py` → `db83325276797ea68c94c929ff6ff3a3dd2e7475caaa9c26207dc5dcdb620f89`
+- `collections.py` → `bc8c926635e4ccc66754b0f214f32b3967aa75a0bb922d12b5563a3c46a094c4`
+- `csv.py` → `b8959f4c9764b1254f923546043277b3398493b13aa185e679dfd9c32d618a2d`
+- `datetime.py` → `c3c661ecac42d3b5f3d3cd7de5846fab3d8c401f649647de6301beb595827d73`
+- `functools.py` → `e72d26e7631377eaf5997c28f0e660c4f7b740871d7081d30fa7562bbb1bd4bc`
+- `itertools.py` → `2b2a658b56ab677196dc61f6a35625dbc689a2fd535edfac1b05544618733f80`
+- `json.py` → `489d91d105feef74231705ddfb5c0e9f0cc8ac9bb38b534ca6504d22d72c18d4`
+- `math.py` → `5b443bf164d9550b8e94bb8670978cf10c791255e23a084f28fc046bd51ffbc1`
+- `os.py` → `d9d7c69c64b6688cd177d27d06600607f7660063b7fb146f9f379c30f9c3fe4f`
+- `pathlib.py` → `80a9a2b6f15357e20330aa2bf54e1f8ec5e5d84f50fa9aea389632aa216f624e`
+- `random.py` → `646c8ebdfb1a7730f7a73093eb92b071ed90bcc88ef97583c7b52795a1ab929e`
+- `re.py` → `b35f5715d0a3604243e082402edda32a115ce0cf7c456113a55af03889726c59`
+- `shutil.py` → `fecd6a6f3758693994879f45f98f339fdae09feec87d1a1c7064cda039612931`
+- `subprocess.py` → `187416dc6c85e07fe72209060f10a29b7b57a22eccc23692bf0d178519de05ed`
+- `sys.py` → `7b0591cf0e5830a0d61a0ae95456d24a1f7a00118aea95cc8cf10d48c1a652b1`
+- `threading.py` → `c5b75970031e3423c519723ad6e57c854289dbddc14a2107a48e1ec16a26522f`
+- `time.py` → `2603a56692dda71bd38f8054dbcc82d43f32692a264dab3daaf7022f9c7fc89b`
+- `typing.py` → `a4bc15eb34b683734d9d3beca63cc7758d618270012d30f3760568e0d39ac8ed`
+- `unittest.py` → `79e1cf8b9e6a5fa1770d18fff935b7cec5e78fb692cbdf904abace6d63786096`

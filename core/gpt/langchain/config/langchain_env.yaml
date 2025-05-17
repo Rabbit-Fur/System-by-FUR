@@ -1,0 +1,10 @@
+
+agent_type: conversational
+memory_type: buffer
+tools:
+  - poster_tool
+  - reminder_tool
+  - log_search_tool
+llm:
+  temperature: 0.2
+  model: gpt-4

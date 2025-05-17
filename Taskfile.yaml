@@ -1,0 +1,18 @@
+version: '3'
+
+tasks:
+  dev:
+    cmds:
+      - flask run &
+      - python bot/main.py
+    env:
+      FLASK_ENV: development
+
+  deploy:
+    cmds:
+      - echo "Deploying to Railway..."
+      - git push origin main
+
+  poster:
+    cmds:
+      - python core/posters/champion_poster.py

@@ -1,0 +1,51 @@
+# 📜 Langformanalyse aller Python-Module
+
+Liste aller analysierten Python-Dateien mit Dateiname, vermuteter Zweck und Typstruktur.
+
+- `FUR MATRIX/champion_data.py` → **Allgemein**
+- `FUR MATRIX/main.py` → **Allgemein**
+- `FUR MATRIX/poster.py` → **Scheduler oder Poster-Modul**
+- `FUR MATRIX/System-by-FUR/app_factory.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/auto_fixer.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/config.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/create_admin_user.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/discord_util.py` → **Hilfsfunktion**
+- `FUR MATRIX/System-by-FUR/env_helpers.py` → **Hilfsfunktion**
+- `FUR MATRIX/System-by-FUR/event_test_seed.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/extract_i18n_keys.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/github_api.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/github_service.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/healthcheck.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/init_db_core.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/insert_champion.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/main.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/main_app.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/reminder_check_manual.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/run.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/seed_db.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/send_champion_to_discord.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/translate_sync.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/web.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/wsgi.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/admin/__init__.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/admin/routes.py` → **Web-Routing-Modul**
+- `FUR MATRIX/System-by-FUR/api/__init__.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/api/routes.py` → **Web-Routing-Modul**
+- `FUR MATRIX/System-by-FUR/app/db.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/bot/__init__.py` → **Discord Cog**
+- `FUR MATRIX/System-by-FUR/bot/bot_main.py` → **Discord Cog**
+- `FUR MATRIX/System-by-FUR/bot/cogs/__init__.py` → **Discord Cog**
+- `FUR MATRIX/System-by-FUR/bot/cogs/base_commands.py` → **Discord Cog**
+- `FUR MATRIX/System-by-FUR/bot/cogs/leaderboard.py` → **Discord Cog**
+- `FUR MATRIX/System-by-FUR/bot/cogs/newsletter.py` → **Discord Cog**
+- `FUR MATRIX/System-by-FUR/bot/cogs/reminder_cog.py` → **Discord Cog**
+- `FUR MATRIX/System-by-FUR/bot/cogs/reminders.py` → **Discord Cog**
+- `FUR MATRIX/System-by-FUR/core/logging/logtail_logger.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/leaderboard/__init__.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/leaderboard/routes.py` → **Web-Routing-Modul**
+- `FUR MATRIX/System-by-FUR/public/__init__.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/public/routes.py` → **Web-Routing-Modul**
+- `FUR MATRIX/System-by-FUR/templates/public/__init__.py` → **Allgemein**
+- `FUR MATRIX/System-by-FUR/templates/public/routes.py` → **Web-Routing-Modul**
+- `FUR MATRIX/System-by-FUR/utils/__init__.py` → **Hilfsfunktion**
+- `FUR MATRIX/System-by-FUR/utils/i18n.py` → **Hilfsfunktion**

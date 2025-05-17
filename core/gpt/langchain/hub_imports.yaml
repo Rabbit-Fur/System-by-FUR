@@ -1,0 +1,5 @@
+
+imports:
+  - langchainhub/fur-system/champion_poster_generator
+  - langchainhub/fur-system/reminder_scheduler
+  - langchainhub/fur-system/self_fix_chain
