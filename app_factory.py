@@ -18,3 +18,4 @@ def create_app():
         return "<h1>🐇 FUR SYSTEM ONLINE</h1><p>Webserver aktiv – System bereit.</p>"
 
     return app
+# Dummy-Comment zum Triggern von Snapshot
