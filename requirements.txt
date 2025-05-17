@@ -1,0 +1,39 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+gunicorn>=20.1.0
+=======
+gunicorn
+>>>>>>> e19e612 (🐍 Fix: gunicorn zu requirements.txt hinzugefügt (Deployment-Fix))
+=======
+>>>>>>> c0cdf33 (🛠️ Fix: gunicorn zu requirements.txt hinzugefügt & Projekt aktualisiert)
+Flask-Babel>=3.1.0
+Flask-Session==0.5.0
+Flask==3.0.0
+SQLAlchemy==2.0.23
+apscheduler
+deepl
+discord.py==2.3.2
+flask
+flask-babel
+flask-limiter
+flask-wtf
+ics
+libretranslatepy
+pillow
+python-dateutil
+python-dotenv
+python-dotenv==1.0.0
+pytz
+redis
+requests
+requests==2.31.0
+tlgbotfwk
+werkzeug
+
+# Development & Testing
+pytest>=7.0.0
+flake8>=3.9.0
+isort>=5.0.0
+black>=23.0.0
+autoflake>=1.4
+gunicorn
