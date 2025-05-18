@@ -11,7 +11,7 @@ def create_app():
         from landing_route import landing_bp
         from static_routes import static_bp
 
-        app.register_blueprint(landing_bp, name="landing_bp")
+       # app.register_blueprint(landing_bp, name="landing_bp")
         app.register_blueprint(static_bp, name="static_bp")
     except Exception as e:
         app.logger.warning(f"Blueprint registration failed: {e}")
