@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-static_bp = Blueprint("static", __name__)
+static_bp = Blueprint("static_bp", __name__)
 @static_bp.route("/admin/admin")
 def admin():
     return render_template("admin/admin.html")
