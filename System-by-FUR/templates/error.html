@@ -1,7 +1,0 @@
-{% extends "layout.html" %}
-{% block title %}Fehler {{ error_code }}{% endblock %}
-{% block content %}
-  <h2>{{ _('Fehler') }} {{ error_code }}</h2>
-  <p>{{ error_message }}</p>
-  <a class="btn" href="{{ url_for('public.index') }}">{{ _('Zur Startseite') }}</a>
-{% endblock %}

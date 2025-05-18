@@ -1,9 +1,0 @@
-name_for_model: env_validator
-name_for_human: Umgebungsvariablen-Validierung
-description_for_model: "Validiere eine .env-Datei gegen das erwartete Schema"
-description_for_human: "Prüfe, ob deine Umgebungsvariablen vollständig und korrekt sind."
-
-api:
-  type: openapi
-  url: https://raw.githubusercontent.com/Rabbit-Fur/System-by-FUR/main/fur-qum-tools/env_openapi.yaml
-  is_user_authenticated: false
