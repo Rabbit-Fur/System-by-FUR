@@ -34,6 +34,10 @@ logging.basicConfig(
 
 app = create_app()
 
+# 🔗 Landing Page aktivieren
+from landing_route import landing_bp
+app.register_blueprint(landing_bp)
+
 def log_error(error_type, error):
     logging.error(f"{error_type}: {str(error)}", exc_info=True)
 
