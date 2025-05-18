@@ -57,7 +57,7 @@ def start_web():
         ]):
             raise EnvironmentError("Missing required Discord OAuth configuration")
 
-        port = int(os.getenv("PORT", 5000))
+        port = int(os.getenv("PORT", 5050))
         app.run(host="0.0.0.0", port=port, debug=False)
 
     except OSError as e:
@@ -69,10 +69,9 @@ def start_web():
         log_error("Web", e)
         raise
 
-
 def cleanup():
     logging.info("Cleaning up resources...")
-    if "bot" in globals() and bot.is_ready():
+    if "bot" in globals() and hasattr(bot, "is_ready") and bot.is_ready():
         bot.close()
     app.config["SHUTTING_DOWN"] = True
 
