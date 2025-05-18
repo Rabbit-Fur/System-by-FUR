@@ -10,9 +10,12 @@ def create_app():
     try:
         from landing_route import landing_bp
         from static_routes import static_bp
+        from healthcheck import health_bp
 
-       # app.register_blueprint(landing_bp, name="landing_bp")
-        app.register_blueprint(static_bp, name="static_bp")
+        app.register_blueprint(landing_bp)
+        app.register_blueprint(static_bp)
+        app.register_blueprint(health_bp)
+
     except Exception as e:
         app.logger.warning(f"Blueprint registration failed: {e}")
 
