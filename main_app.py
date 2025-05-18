@@ -1,12 +1,9 @@
-# main_app.py
 import atexit
 import locale
 import logging
 import os
 import signal
-import sys
 import threading
-
 from dotenv import load_dotenv
 
 import bot
@@ -34,9 +31,6 @@ logging.basicConfig(
 
 app = create_app()
 
-# 🔗 Landing Page aktivieren
-from landing_route import landing_bp
-app.register_blueprint(landing_bp)
 
 def log_error(error_type, error):
     logging.error(f"{error_type}: {str(error)}", exc_info=True)
@@ -69,6 +63,7 @@ def start_web():
         log_error("Web", e)
         raise
 
+
 def cleanup():
     logging.info("Cleaning up resources...")
     if "bot" in globals() and hasattr(bot, "is_ready") and bot.is_ready():
@@ -78,7 +73,7 @@ def cleanup():
 
 def signal_handler(sig, frame):
     print("🔻 Shutting down gracefully...")
-    if bot.is_ready():
+    if hasattr(bot, "is_ready") and bot.is_ready():
         bot.close()
     os._exit(0)
 
